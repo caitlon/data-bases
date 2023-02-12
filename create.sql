@@ -1,7 +1,7 @@
--- odeberu pokud existuje funkce na odebrání tabulek a sekvencí
+-- remove if there is a function to remove tables and sequences
 DROP FUNCTION IF EXISTS remove_all();
 
--- vytvořím funkci která odebere tabulky a sekvence
+-- I'll create a function that removes tables and sequences
 CREATE or replace FUNCTION remove_all() RETURNS void AS $$
 DECLARE
     rec RECORD;
@@ -45,7 +45,7 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
--- zavolám funkci co odebere tabulky a sekvence - Mohl bych dropnout celé schéma a znovu jej vytvořit, použíjeme však PLSQL
+-- I call a function that removes tables and sequences - I could drop the whole schema and recreate it, but we use PLSQL
 select remove_all();
 
 -- Remove conflicting tables
