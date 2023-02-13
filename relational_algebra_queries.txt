@@ -1,0 +1,71 @@
+1. List name, date of birth ( date_of_birth ) and cause of death ( cause_of_death ) of the 
+guest, who played billiards and his soul was sent into oblivion.
+
+guest(game = 'Billiards' ∧ verdict = 'Sent into oblivion.')
+[name, date_of_birth, cause_of_death]
+
+2. What game was played by guest Kaori Miyazono.
+guest(name = 'Kaori Miyazono')[game]
+
+3. List guest's name and prehistory ( guest_prehistory ) whose death was caused by heart attack.
+guest(cause_of_death = 'Death caused by heart attack.')[name, guest_prehistory]
+
+4. List snack's name that was never ordered.
+{snack_order_desk !*> snack}[name->snack]
+
+5. List all guest's attributes who has ordered Absinthe or Vermouth.
+{
+{{drink(sort = 'Absinthe') *> order_desk_drink *> order_desk}[id_guest]}
+∪
+{{drink(sort = 'Vermouth') *> order_desk_drink *> order_desk}[id_guest]}
+}
+[id_guest]*guest
+
+6. List all worker's attributes who has ordered all sorts of wine (Red Wine, White Wine and Rose Wine).
+{{
+{{drink(sort = 'Red Wine') *> order_desk_drink *> order_desk}[worker_id_worker]}
+∩
+{{drink(sort = 'White Wine') *> order_desk_drink *> order_desk}[worker_id_worker]}
+∩
+{{drink(sort = 'Rose Wine') *> order_desk_drink *> order_desk}[worker_id_worker]}
+}[worker_id_worker -> id_worker]
+}* worker
+
+7. What guest ordered only cocktail "Virgin Strawberry Daiquiri". List all guest's attributes.
+{
+{{{
+{drink(name = 'Virgin Strawberry Daiquiri') *> order_desk_drink}[id_order]}
+*> order_desk}
+[id_guest]} *> guest
+}
+\
+{{{{
+{drink(name != 'Virgin Strawberry Daiquiri') *> order_desk_drink}[id_order]}
+*> order_desk}
+[id_guest]} *> guest}
+
+8. Name of the snack that guest Maes Hughes has ordered.
+{
+{{{guest(name = 'Maes Hughes')
+[guest.id_guest = order_desk.id_order]order_desk}
+[id_guest, id_order]}
+*snack_order_desk}*snack
+}
+[name]
+
+9. Worker who has ordered all drinks related to sort 'Vodka'. List all attributes. ( Worker who doesn't have a sort of 'Vodka', that he doesn't order. )
+{{{{{{{drink(sort = 'Vodka')[id_drink]}*order_desk_drink}*order_desk}
+[id_order, id_drink, worker_id_worker -> id_worker]}
+*worker}[name, id_drink]
+÷
+drink(sort = 'Vodka')[id_drink]}*worker}[id_worker, id_bar, name]
+
+10. Category D1 query check.
+drink(sort='Vodka')
+\
+{{{{{{{{{{{{{drink(sort = 'Vodka')[id_drink]}*order_desk_drink}*order_desk}
+[id_order, id_drink, worker_id_worker -> id_worker]}
+*worker}[name, id_drink]
+÷
+drink(sort = 'Vodka')[id_drink]}*worker}[id_worker -> worker_id_worker]}*order_desk}
+[id_order]}*order_desk_drink}[id_drink]}*drink(sort='Vodka')}
