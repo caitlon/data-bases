@@ -1,5 +1,5 @@
 # data-base-semestral-work
-### Description
+### Description 📚
 
 Whenever someone dies, they are sent to Bar Quindecim run by Decim - owner of the bar, serving as arbiter, he decides the further fate of the guest's soul : gives verdict whether the guest's soul will be banished into the void or will it acquire a new body. Arbiter leads inside a tower on the 15th floor in the afterlife with bartender Kurokami no Onna, who serves guests and workers. Besides arbiter and bartender in Quindecim works assistent Quin – she prepares guests' life description ( as known as prehistory ) prior to their death and hand information over to the arbiter before guests arrive at the bar, each guest has id, name, the cause of death and in addition their date of birth.
 
@@ -9,7 +9,7 @@ Quindecim offers different sorts of drinks and snacks. At the bar desk are both 
 
 Each worker performs his own role, cannot change post and cannot take on the duties of other workers. The arbiter owns the bar, as owner he has admittance to information regarding the bar, draws up the rules inside Quindecim, marks the people's behavior during the game, has access to their prehistories; thereafter, having full information about the guests, arbiter makes a verdict: according to the arbiter's judgment, decent soul are sent to reincarnation, and an undeserving one - into oblivion. The bartender prepares orders, what contain of snacks and drinks. Assistent prepares guests' prehistories before their visit, looking at their lives till death through the prism of time. All workers have their id, name. Since workers are immortal gods, they cannot participate in games.
 
-### Loop discussion
+### Loop discussion 🔁
 
 
 Workers are allowed to drink and eat at the workplace. In this regard, the bartender, in addition to serving guests, is also engaged in serving workers. The bartender can also order and serve herself.
