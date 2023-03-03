@@ -17,8 +17,8 @@ Each **worker** performs his own role, cannot change post and cannot take on the
 
 1. **Workers** are allowed to drink and eat at the workplace. In this regard, **the bartender**, in addition to serving **guests**, is also engaged in serving **workers**. **The bartender** can also order and serve herself.
 
-2. **Arbiter**, being a **worker**, is at the same time **the owner of the bar**, that is, he performs two duties: he is **the arbiter** and **the owner**. The position of **the owner** allows him to have connection owns the bar, that is he owns the bar in which he works. The rest of **the workers** are **not owners**, they only work in the bar.
+2. **Arbiter** is **a worker** who also happens to be **the owner of the bar**. As such, he performs two duties: he acts as **the arbiter** and **the owner**. His position as **the owner** allows him to have a personal connection with the bar because he owns it. The rest of **the workers** are **not owners**; they only work in the bar.
 
-3. **Arbiter** gives verdict to a guest after a game. **Guests** who have received a verdict can no longer make orders.
+3. After a game, **Arbiter** gives a verdict to **the guests**. Once a verdict has been given, **the guests** are no longer able to make orders.
 
-4. **Guest**, for whom **the assistent** has prepared prehistory, can make orders; there cannot be a case where **guest** does not have prehistory.
+4. **A guest**, for whom **the assistant** has prepared a prehistory, can make orders. There cannot be a case where **the guest** does not have a prehistory.
