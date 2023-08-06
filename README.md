@@ -9,7 +9,7 @@ After **guests** arrive at the bar, **arbiter** offers to play a game for them, 
 
 Each **worker** performs his own role, cannot change post and cannot take on the duties of other **workers**. **The arbiter** owns the bar, as **owner** he has admittance to information regarding the bar, draws up the rules inside *Quindecim*, marks the people's behavior during the game, has access to their prehistories; thereafter, having full information about **the guests**, **arbiter** makes a verdict: according to the **arbiter**'s judgment, decent soul are sent to reincarnation, and an undeserving one - into oblivion. **The bartender** prepares orders, what contain of snacks and drinks. **Assistent** prepares **guests**' prehistories before their visit, looking at their lives till death through the prism of time. All **workers** have their `id`, `name`. Since **workers** are immortal gods, they cannot participate in games.
 
-![Screenshot 2023-02-20 at 23 05 48](https://user-images.githubusercontent.com/85711789/220205301-0c7b6f2c-89f1-4a2f-8bab-dbf28d9d3594.png)
+![relational_schema](https://github.com/caitlon/data-base-semestral-work/assets/85711789/64337f60-31e8-4dfc-af6a-1e48eea97594)
 
 
 ### Loop discussion 🔁
@@ -22,3 +22,5 @@ Each **worker** performs his own role, cannot change post and cannot take on the
 3. After a game, **Arbiter** gives a verdict to **the guests**. Once a verdict has been given, **the guests** are no longer able to make orders.
 
 4. **A guest**, for whom **the assistant** has prepared a prehistory, can make orders. There cannot be a case where **the guest** does not have a prehistory.
+
+![Screenshot 2023-02-20 at 23 05 48](https://user-images.githubusercontent.com/85711789/220205301-0c7b6f2c-89f1-4a2f-8bab-dbf28d9d3594.png)
