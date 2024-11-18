@@ -65,12 +65,12 @@ DROP TABLE IF EXISTS pet_like CASCADE;
 DROP TABLE IF EXISTS pet_match CASCADE;
 DROP TABLE IF EXISTS pet_preference CASCADE;
 DROP TABLE IF EXISTS pet_profile CASCADE;
+DROP TABLE IF EXISTS phone_code CASCADE;
 DROP TABLE IF EXISTS photo_data CASCADE;
 DROP TABLE IF EXISTS user_account CASCADE;
 DROP TABLE IF EXISTS user_block CASCADE;
 DROP TABLE IF EXISTS user_grade CASCADE;
 DROP TABLE IF EXISTS user_language CASCADE;
-DROP TABLE IF EXISTS phone_code CASCADE;
 -- end of removing
 
 CREATE TABLE animal_type (
@@ -182,6 +182,7 @@ CREATE TABLE pet_profile (
     profile_id SERIAL NOT NULL,
     gender_id INTEGER NOT NULL,
     city_id INTEGER NOT NULL,
+    breed_id INTEGER NOT NULL,
     type_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     pet_name VARCHAR(100) NOT NULL,
@@ -218,10 +219,10 @@ ALTER TABLE photo_data ADD CONSTRAINT u_fk_photo_data_user_account UNIQUE (user_
 CREATE TABLE user_account (
     user_id SERIAL NOT NULL,
     code_id INTEGER NOT NULL,
-    gender_id INTEGER NOT NULL,
+    gender_id INTEGER,
     nickname VARCHAR(100) NOT NULL,
     email VARCHAR(256) NOT NULL,
-    phone_number VARCHAR(30) NOT NULL,
+    phone_number BIGINT NOT NULL,
     date_of_birth DATE NOT NULL,
     firstname VARCHAR(100) NOT NULL,
     lastname VARCHAR(100),
@@ -288,6 +289,7 @@ ALTER TABLE pet_preference ADD CONSTRAINT fk_pet_preference_pet_profile FOREIGN 
 
 ALTER TABLE pet_profile ADD CONSTRAINT fk_pet_profile_gender FOREIGN KEY (gender_id) REFERENCES gender (gender_id) ON DELETE CASCADE;
 ALTER TABLE pet_profile ADD CONSTRAINT fk_pet_profile_city FOREIGN KEY (city_id) REFERENCES city (city_id) ON DELETE CASCADE;
+ALTER TABLE pet_profile ADD CONSTRAINT fk_pet_profile_breed FOREIGN KEY (breed_id) REFERENCES breed (breed_id) ON DELETE CASCADE;
 ALTER TABLE pet_profile ADD CONSTRAINT fk_pet_profile_animal_type FOREIGN KEY (type_id) REFERENCES animal_type (type_id) ON DELETE CASCADE;
 ALTER TABLE pet_profile ADD CONSTRAINT fk_pet_profile_user_account FOREIGN KEY (user_id) REFERENCES user_account (user_id) ON DELETE CASCADE;
 
