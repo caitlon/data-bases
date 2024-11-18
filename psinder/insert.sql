@@ -317,69 +317,37 @@ INSERT INTO city (city_name, country_id) VALUES
 ('Bukhara', (SELECT country_id FROM country WHERE country_name = 'Uzbekistan'));
 
 INSERT INTO phone_code (code_number, country_id) VALUES
--- Austria
 ('+43', (SELECT country_id FROM country WHERE country_name = 'Austria')),
--- Belarus
 ('+375', (SELECT country_id FROM country WHERE country_name = 'Belarus')),
--- Belgium
 ('+32', (SELECT country_id FROM country WHERE country_name = 'Belgium')),
--- Bulgaria
 ('+359', (SELECT country_id FROM country WHERE country_name = 'Bulgaria')),
--- Croatia
 ('+385', (SELECT country_id FROM country WHERE country_name = 'Croatia')),
--- Cyprus
 ('+357', (SELECT country_id FROM country WHERE country_name = 'Cyprus')),
--- Czechia
 ('+420', (SELECT country_id FROM country WHERE country_name = 'Czechia')),
--- Denmark
 ('+45', (SELECT country_id FROM country WHERE country_name = 'Denmark')),
--- Estonia
 ('+372', (SELECT country_id FROM country WHERE country_name = 'Estonia')),
--- Finland
 ('+358', (SELECT country_id FROM country WHERE country_name = 'Finland')),
--- France
 ('+33', (SELECT country_id FROM country WHERE country_name = 'France')),
--- Germany
 ('+49', (SELECT country_id FROM country WHERE country_name = 'Germany')),
--- Greece
 ('+30', (SELECT country_id FROM country WHERE country_name = 'Greece')),
--- Hungary
 ('+36', (SELECT country_id FROM country WHERE country_name = 'Hungary')),
--- Ireland
 ('+353', (SELECT country_id FROM country WHERE country_name = 'Ireland')),
--- Italy
 ('+39', (SELECT country_id FROM country WHERE country_name = 'Italy')),
--- Latvia
 ('+371', (SELECT country_id FROM country WHERE country_name = 'Latvia')),
--- Lithuania
 ('+370', (SELECT country_id FROM country WHERE country_name = 'Lithuania')),
--- Luxembourg
 ('+352', (SELECT country_id FROM country WHERE country_name = 'Luxembourg')),
--- Malta
 ('+356', (SELECT country_id FROM country WHERE country_name = 'Malta')),
--- Netherlands
 ('+31', (SELECT country_id FROM country WHERE country_name = 'Netherlands')),
--- Poland
 ('+48', (SELECT country_id FROM country WHERE country_name = 'Poland')),
--- Portugal
 ('+351', (SELECT country_id FROM country WHERE country_name = 'Portugal')),
--- Romania
 ('+40', (SELECT country_id FROM country WHERE country_name = 'Romania')),
--- Russia
 ('+7', (SELECT country_id FROM country WHERE country_name = 'Russia')),
--- Slovakia
 ('+421', (SELECT country_id FROM country WHERE country_name = 'Slovakia')),
--- Slovenia
 ('+386', (SELECT country_id FROM country WHERE country_name = 'Slovenia')),
--- Spain
 ('+34', (SELECT country_id FROM country WHERE country_name = 'Spain')),
--- Sweden
 ('+46', (SELECT country_id FROM country WHERE country_name = 'Sweden')),
--- Ukraine
 ('+380', (SELECT country_id FROM country WHERE country_name = 'Ukraine')),
--- United Kingdom
 ('+44', (SELECT country_id FROM country WHERE country_name = 'United Kingdom')),
--- Uzbekistan
 ('+998', (SELECT country_id FROM country WHERE country_name = 'Uzbekistan'));
 
 INSERT INTO gender (gender_name) VALUES
@@ -425,7 +393,8 @@ INSERT INTO breed (breed_name, type_id) VALUES
 ('Rottweiler', (SELECT type_id FROM animal_type WHERE type_name = 'Dog')),
 ('Yorkshire Terrier', (SELECT type_id FROM animal_type WHERE type_name = 'Dog')),
 ('Boxer', (SELECT type_id FROM animal_type WHERE type_name = 'Dog')),
-('Dachshund', (SELECT type_id FROM animal_type WHERE type_name = 'Dog'));
+('Dachshund', (SELECT type_id FROM animal_type WHERE type_name = 'Dog')),
+('King Charles Spaniel', (SELECT type_id FROM animal_type WHERE type_name = 'Dog'));
 
 -- cat breeds
 INSERT INTO breed (breed_name, type_id) VALUES
@@ -438,7 +407,9 @@ INSERT INTO breed (breed_name, type_id) VALUES
 ('Bengal', (SELECT type_id FROM animal_type WHERE type_name = 'Cat')),
 ('Russian Blue', (SELECT type_id FROM animal_type WHERE type_name = 'Cat')),
 ('Scottish Fold', (SELECT type_id FROM animal_type WHERE type_name = 'Cat')),
-('Abyssinian', (SELECT type_id FROM animal_type WHERE type_name = 'Cat'));
+('Abyssinian', (SELECT type_id FROM animal_type WHERE type_name = 'Cat')),
+('Munchkin', (SELECT type_id FROM animal_type WHERE type_name = 'Cat')),
+('Exotic Shorthair', (SELECT type_id FROM animal_type WHERE type_name = 'Cat'));
 
 -- parrot breeds
 INSERT INTO breed (breed_name, type_id) VALUES
@@ -497,9 +468,9 @@ INSERT INTO user_account (
     '2006-11-05',
     'Marija',
     NULL,
-    'An avid traveler and photographer. Loving cats & living my best life.',
-    'hashed_password_1',
-    'salt_value_1',
+    'My cat runs my life. I’m just here to pay the bills and open cans.',
+    '3b8e32e8c4ff4a2e3c1541d2c9a4c86a4e6b6a3d8ef6c3db6243f8f5d5d8c9a1',
+    'X4xZkPm7Y+2vQ9uLtC3zOg',
     '2024-01-08 04:05:06',
     TRUE
 ),
@@ -513,9 +484,9 @@ INSERT INTO user_account (
     '1996-06-23',
     'Margaret',
     'Hamadej',
-    'Loves pets and cooking.',
-    'hashed_password_2',
-    'salt_value_2',
+    'I enjoy long walks... from the bed to the fridge and back. Especially if there’s ice cream involved.',
+    'a1e2b3c4d5f6789012a3b4c5d6e7f8901a2b3c4d5e6f7890a1b2c3d4e5f6a7b8',
+    'R8kYpW5eJ2oLxN9uOm2zRg',
     '2024-05-04 10:11:10',
     TRUE
 ),
@@ -529,9 +500,9 @@ INSERT INTO user_account (
     '2005-11-05',
     'Max',
     NULL,
-    'Coffee enthusiast and Zara lover.',
-    'hashed_password_3',
-    'salt_value_3',
+    'My dog knows more tricks than I do skills at work. And she’s not even stressed about it.',
+    'd41d8cd98f00b204e9800998ecf8427eafbf3c3c6f7f8f9a0b1c2d3e4f5a6b7',
+    'Q1lXpZ8vT7oKmN5cO3rZPg',
     '2024-03-20 23:30:09',
     TRUE
 ),
@@ -545,9 +516,9 @@ INSERT INTO user_account (
     '1999-09-12',
     'Chris',
     'Wilson',
-    'Music lover and artist.',
-    'hashed_password_4',
-    'salt_value_4',
+    'Built an impressive meme collection, now looking for a partner to co-create a collection of dog memes.',
+    'f2ca1bb6c7e907d06dafe4687e579fce2e3b4c5a1d2e3f4b5c6d7e8f9a0b1c2',
+    'W7jLpQ2cR5zOnX9vTm3zYg',
     '2024-03-25 00:00:59',
     TRUE
 ),
@@ -561,9 +532,9 @@ INSERT INTO user_account (
     '1995-03-30',
     'Pat',
     'Kim',
-    'Enjoys hiking and reading.',
-    'hashed_password_5',
-    'salt_value_5',
+    'My pet is a professional slipper thief. If you have slippers, we’re probably soulmates.',
+    '5d41402abc4b2a76b9719d911017c592b8a3c4d5f6e7f8c9d0e1f2a3b4c5d6e7',
+    'T4oYpX9vJ2kLZ7cOm1rQg',
     '2024-09-01 05:13:20',
     TRUE
 ),
@@ -577,9 +548,9 @@ INSERT INTO user_account (
     '2001-05-04',
     'Katya',
     NULL,
-    'Люблю путешествовать и фотографировать.',
-    'hashed_password_6',
-    'salt_value_6',
+    'Instead of music, my cat enjoys listening to aquarium bubbles. Together we’re seeking support.',
+    'e99a18c428cb38d5f260853678922e03f5b6a7b8c9d0e1f2b3c4d5e6f7a8b9c0',
+    'V3kLpR2cW5zOmX8oJ1nYq',
     '2024-05-06 19:30:23',
     TRUE
 ),
@@ -593,9 +564,9 @@ INSERT INTO user_account (
     '1988-08-20',
     'Josef',
     'Smith',
-    'Opan like a book.',
-    'hashed_password_7',
-    'salt_value_7',
+    'I’m the official servant to my dog. Looking for someone to share this noble burden.',
+    'c5d9b52ac8dfc9baf3d19e8cfc4a96b2d8b9c0e1f2a3b4c5e6f7f8d0c1e2b3a4',
+    'P9xZkW2eT7oLQ3mJ5yOg',
     '2024-10-10 22:19:00',
     TRUE
 ),
@@ -609,9 +580,9 @@ INSERT INTO user_account (
     '1998-02-28',
     'Sarah',
     'Connor',
-    'Tech enthusiast and fitness lover.',
-    'hashed_password_8',
-    'salt_value_8',
+    'I have a hamster who’s tried to escape twice already. Help me convince him to stay.',
+    'f6c3d2e1b0a1c2d3e4f5a6b7c8d9f0e1f2a3b4c5e6f7f8d9e0a1b2c3d4e5f6a7',
+    'O1lYpQ9vW7zKnR5cT3mZg',
     '2024-11-01 20:00:59',
     TRUE
 ),
@@ -625,9 +596,9 @@ INSERT INTO user_account (
     '1993-07-15',
     'Rahul',
     NULL,
-    'Cricket fan and software engineer.',
-    'hashed_password_9',
-    'salt_value_9',
+    'Bought my cat a toy castle, now I live in her kingdom. Welcome, brave traveler!',
+    '74b87337454200d4d33f80c4663dc5e5f2a3c4b5d6e7f8c9d0e1f2a3b4c5d6e7',
+    'N8kLpX2cJ5oOmT9rW3zYq',
     '2024-11-10 08:50:03',
     TRUE
 ),
@@ -641,14 +612,63 @@ INSERT INTO user_account (
     '2000-12-05',
     'Carlos',
     'Garcia',
-    'Musician and language learner.',
-    'hashed_password_10',
-    'salt_value_10',
+    'My dog looks at me like I’m a superstar, and I look at her like she’s a future TikTok star. Wanna help us film?',
+    'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3b0c4d6f7a8b9c0e1f2a3c4d5',
+    'M4oYpT7vQ2kLZ9cOm1rRg',
     '2024-08-11 10:33:18',
     TRUE
 );
 
+INSERT INTO pet_profile (
+    gender_id, city_id, breed_id, type_id, user_id, pet_name, date_of_birth, price,
+    certification_url, profile_description, purebred_percantage, created_datetime
+)
+VALUES
+-- dogs
+((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
+ (SELECT city_id FROM City WHERE city_name = 'Prague'),
+ (SELECT breed_id FROM breed WHERE breed_name = 'King Charles Spaniel'),
+ (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
+ 1, 'Snusicha', '2022-04-05', 5000, 'https://example.com/certificates/buddy_cert.pdf',
+ 'Meet Snusicha, a stunning King Charles Spaniel with a charming personality and impeccable lineage. ' ||
+ 'Playful yet calm, Snusicha adores cuddles, long walks, and, of course, being the center of attention. ' ||
+ 'If you’re looking for a top-quality companion for breeding, Snusicha is ready to meet her match! 🐾 ' ||
+ 'Feel free to contact me for further details or to arrange a meet-up. Let’s make some adorable King Charles Spaniel puppies together! 🐶✨', 100, '2024-01-08 06:00:00'),
 
+-- cats
+((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
+ (SELECT city_id FROM City WHERE city_name = 'Prague'),
+ (SELECT breed_id FROM breed WHERE breed_name = 'Ragdoll'),
+ (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+ 1, 'Tulupchik', '2021-04-12', 1300, NULL,
+ 'Tulupchik is my fluffy little gentleman with the softest fur and the sweetest personality. ' ||
+ 'He loves lounging in sunny spots and following me around the house for cuddles. ' ||
+ 'If you’re looking for a calm and affectionate companion, Tulupchik is the one!', 100, '2024-02-09 11:30:12'),
 
+((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
+ (SELECT city_id FROM City WHERE city_name = 'Prague'),
+ (SELECT breed_id FROM breed WHERE breed_name = 'Munchkin'),
+ (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+ 1, 'Kozjavka', '2022-02-05', 1250, NULL,
+ 'Meet Kozjavka, my little adventurer with the tiniest legs and the biggest heart. ' ||
+ 'He’s playful, curious, and always up for exploring new corners of the house. ' ||
+ 'A perfect companion for someone who loves a quirky and lovable pet!', 100, '2024-02-09 11:02:30'),
 
+((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
+ (SELECT city_id FROM City WHERE city_name = 'Prague'),
+ (SELECT breed_id FROM breed WHERE breed_name = 'Maine Coon'),
+ (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+ 1, 'Bobik', '2020-01-25', 1400, NULL,
+ 'Bobik is my majestic Maine Coon with a luxurious coat and an even more luxurious personality. ' ||
+ 'He’s a friendly giant who loves attention and will greet you with a happy meow every time you walk in. ' ||
+ 'Perfect for someone who wants a loving, regal companion!', 100, '2024-02-08 07:30:00'),
 
+((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
+ (SELECT city_id FROM City WHERE city_name = 'Prague'),
+ (SELECT breed_id FROM breed WHERE breed_name = 'Exotic Shorthair'),
+ (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+ 1, 'Ajkosik', '2020-01-25', 1000, NULL,
+ 'Ajkosik is my charming Exotic Shorthair with the cutest squishy face and a heart full of love. ' ||
+ 'He’s calm, affectionate, and loves to curl up beside you for a cozy nap. ' ||
+ 'If you’re looking for a sweet and easygoing companion, Ajkosik is ready to meet you!', 100, '2024-02-08 07:30:00')
+;
