@@ -311,4 +311,3 @@ ALTER TABLE user_language ADD CONSTRAINT fk_user_language_user_account FOREIGN K
 ALTER TABLE user_language ADD CONSTRAINT fk_user_language_language FOREIGN KEY (language_id) REFERENCES language (language_id) ON DELETE CASCADE;
 
 ALTER TABLE photo_data ADD CONSTRAINT xc_photo_data_profile_id_user_i CHECK ((profile_id IS NOT NULL AND user_id IS NULL) OR (profile_id IS NULL AND user_id IS NOT NULL));
-
