@@ -1,8 +1,7 @@
-DROP TRIGGER IF EXISTS pet_match_trigger ON pet_like;
--- remove if there is a function to remove tables and sequences
+-- Remove if there is a function to remove tables and sequences
 DROP FUNCTION IF EXISTS remove_all();
 
--- create a function that removes tables and sequences
+-- Create a function that removes tables and sequences
 CREATE or replace FUNCTION remove_all() RETURNS void AS
 $$
 DECLARE
@@ -43,9 +42,9 @@ BEGIN
     RETURN;
 END;
 $$ LANGUAGE plpgsql;
--- call a function that takes tables and sequences
+-- Call a function that takes tables and sequences
 select remove_all();
--- remove conflicting tables
+-- Remove conflicting tables
 DROP TABLE IF EXISTS animal_type CASCADE;
 DROP TABLE IF EXISTS breed CASCADE;
 DROP TABLE IF EXISTS city CASCADE;
@@ -67,7 +66,7 @@ DROP TABLE IF EXISTS user_account CASCADE;
 DROP TABLE IF EXISTS user_block CASCADE;
 DROP TABLE IF EXISTS user_grade CASCADE;
 DROP TABLE IF EXISTS user_language CASCADE;
--- end of removing
+-- End of removing
 
 CREATE TABLE animal_type
 (
@@ -76,6 +75,8 @@ CREATE TABLE animal_type
 );
 ALTER TABLE animal_type
     ADD CONSTRAINT pk_animal_type PRIMARY KEY (type_id);
+ALTER TABLE animal_type
+    ADD CONSTRAINT uc_animal_type_name UNIQUE (type_name);
 
 CREATE TABLE breed
 (
@@ -126,6 +127,8 @@ CREATE TABLE country
 );
 ALTER TABLE country
     ADD CONSTRAINT pk_country PRIMARY KEY (country_id);
+ALTER TABLE country
+    ADD CONSTRAINT uc_country_name UNIQUE (country_name);
 
 CREATE TABLE country_preference
 (
@@ -142,6 +145,8 @@ CREATE TABLE gender
 );
 ALTER TABLE gender
     ADD CONSTRAINT pk_gender PRIMARY KEY (gender_id);
+ALTER TABLE gender
+    ADD CONSTRAINT uc_gender_name UNIQUE (gender_name);
 
 CREATE TABLE language
 (
@@ -150,6 +155,8 @@ CREATE TABLE language
 );
 ALTER TABLE language
     ADD CONSTRAINT pk_language PRIMARY KEY (language_id);
+ALTER TABLE language
+    ADD CONSTRAINT uc_language_name UNIQUE (language_name);
 
 CREATE TABLE message
 (
@@ -170,6 +177,8 @@ CREATE TABLE pet_like
 );
 ALTER TABLE pet_like
     ADD CONSTRAINT pk_pet_like PRIMARY KEY (profile_initiator_id, profile_target_id);
+CREATE INDEX idx_pet_like_initiator_target ON pet_like (profile_initiator_id, profile_target_id);
+CREATE INDEX idx_pet_like_target_initiator ON pet_like (profile_target_id, profile_initiator_id);
 
 CREATE TABLE pet_match
 (
@@ -202,11 +211,11 @@ CREATE TABLE pet_profile
     profile_id          SERIAL       NOT NULL,
     gender_id           INTEGER      NOT NULL,
     city_id             INTEGER      NOT NULL,
-    breed_id            INTEGER      NOT NULL,
     type_id             INTEGER      NOT NULL,
     user_id             INTEGER      NOT NULL,
     pet_name            VARCHAR(100) NOT NULL,
     date_of_birth       DATE         NOT NULL,
+    breed_id            INTEGER,
     price               INTEGER,
     certification_url   TEXT,
     profile_description VARCHAR(500),
@@ -228,6 +237,8 @@ ALTER TABLE phone_code
     ADD CONSTRAINT pk_phone_code PRIMARY KEY (code_id);
 ALTER TABLE phone_code
     ADD CONSTRAINT u_fk_phone_code_country UNIQUE (country_id);
+ALTER TABLE phone_code
+    ADD CONSTRAINT uc_phone_code_number UNIQUE (code_number);
 
 CREATE TABLE photo_data
 (
@@ -252,7 +263,7 @@ CREATE TABLE user_account
     gender_id           INTEGER,
     nickname            VARCHAR(100) NOT NULL,
     email               VARCHAR(256) NOT NULL,
-    phone_number        BIGINT       NOT NULL,
+    phone_number        VARCHAR(15)  NOT NULL,
     date_of_birth       DATE         NOT NULL,
     firstname           VARCHAR(100) NOT NULL,
     lastname            VARCHAR(100),
@@ -383,21 +394,21 @@ ALTER TABLE photo_data
                                                           (profile_id IS NULL AND user_id IS NOT NULL));
 
 CREATE OR REPLACE FUNCTION create_pet_match()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS
+$$
 DECLARE
     mutual_like_exists BOOLEAN;
-    match_exists BOOLEAN;
-    min_profile_id INTEGER;
-    max_profile_id INTEGER;
-    latest_like_time TIMESTAMP;
+    match_exists       BOOLEAN;
+    min_profile_id     INTEGER;
+    max_profile_id     INTEGER;
+    latest_like_time   TIMESTAMP;
 BEGIN
-    -- Checking to see if there is a mute like
-    SELECT EXISTS (
-        SELECT 1
-        FROM pet_like
-        WHERE profile_initiator_id = NEW.profile_target_id
-          AND profile_target_id = NEW.profile_initiator_id
-    ) INTO mutual_like_exists;
+    -- Checking to see if there is a mutual like
+    SELECT EXISTS (SELECT 1
+                   FROM pet_like
+                   WHERE profile_initiator_id = NEW.profile_target_id
+                     AND profile_target_id = NEW.profile_initiator_id)
+    INTO mutual_like_exists;
 
     IF mutual_like_exists THEN
         -- Define minimum and maximum profile_id to maintain order
@@ -410,24 +421,24 @@ BEGIN
         END IF;
 
         -- Check if a match already exists between these profiles
-        SELECT EXISTS (
-            SELECT 1
-            FROM pet_match
-            WHERE profile_id_1 = min_profile_id
-              AND profile_id_2 = max_profile_id
-        ) INTO match_exists;
+        SELECT EXISTS (SELECT 1
+                       FROM pet_match
+                       WHERE profile_id_1 = min_profile_id
+                         AND profile_id_2 = max_profile_id)
+        INTO match_exists;
 
-        -- Get the last date of likes
+        -- Get the latest like time
         SELECT GREATEST(
-            (SELECT created_datetime
-             FROM pet_like
-             WHERE profile_initiator_id = NEW.profile_initiator_id
-               AND profile_target_id = NEW.profile_target_id),
-            (SELECT created_datetime
-             FROM pet_like
-             WHERE profile_initiator_id = NEW.profile_target_id
-               AND profile_target_id = NEW.profile_initiator_id)
-        ) INTO latest_like_time;
+                       (SELECT created_datetime
+                        FROM pet_like
+                        WHERE profile_initiator_id = NEW.profile_initiator_id
+                          AND profile_target_id = NEW.profile_target_id),
+                       (SELECT created_datetime
+                        FROM pet_like
+                        WHERE profile_initiator_id = NEW.profile_target_id
+                          AND profile_target_id = NEW.profile_initiator_id)
+               )
+        INTO latest_like_time;
 
         IF NOT match_exists THEN
             INSERT INTO pet_match (profile_id_1, profile_id_2, created_datetime)
@@ -445,14 +456,15 @@ CREATE TRIGGER pet_match_trigger
 EXECUTE FUNCTION create_pet_match();
 
 CREATE OR REPLACE FUNCTION create_conversation_from_match()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS
+$$
 DECLARE
     new_conversation_id INTEGER;
 BEGIN
     -- Create a new record in the conversation table using the date from match.created_datetime
     INSERT INTO conversation (created_datetime)
     VALUES (NEW.created_datetime)
-    RETURNING conversation_id INTO new_conversation_id; 
+    RETURNING conversation_id INTO new_conversation_id;
 
     INSERT INTO conversation_member (conversation_id, profile_id)
     VALUES (new_conversation_id, NEW.profile_id_1),
@@ -462,6 +474,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 CREATE TRIGGER create_conversation_trigger
-AFTER INSERT ON pet_match
-FOR EACH ROW
+    AFTER INSERT
+    ON pet_match
+    FOR EACH ROW
 EXECUTE FUNCTION create_conversation_from_match();
