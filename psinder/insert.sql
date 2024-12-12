@@ -1,4 +1,4 @@
--- delete all records from tables
+-- Delete all records from tables
 CREATE or replace FUNCTION clean_tables() RETURNS void AS
 $$
 declare
@@ -14,7 +14,7 @@ end;
 $$ LANGUAGE plpgsql;
 select clean_tables();
 
--- reset sequence
+-- Reset sequence
 CREATE or replace FUNCTION restart_sequences() RETURNS void AS
 $$
 DECLARE
@@ -28,7 +28,7 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 select restart_sequences();
--- end of reset
+-- End of reset
 
 INSERT INTO country (country_name)
 VALUES ('Austria'),
@@ -351,7 +351,6 @@ VALUES ('Dog'),
        ('Horse'),
        ('Other');
 
--- dog breeds
 INSERT INTO breed (breed_name, type_id)
 VALUES ('Labrador Retriever', (SELECT type_id FROM animal_type WHERE type_name = 'Dog')),
        ('German Shepherd', (SELECT type_id FROM animal_type WHERE type_name = 'Dog')),
@@ -640,12 +639,12 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Pusicka is a playful and loyal companion, perfect for breeding. Gentle, friendly, and full of energy.', 90,
         '2024-01-01 12:11:00'),
 
-       ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'),
+       ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Manchester'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Labrador Retriever'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
         2,
-        'Daisy',
+        'Skibidi',
         '2021-02-20',
         1700,
         NULL,
@@ -673,8 +672,8 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Beagle'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Franky', '2021-02-26', 1000, NULL,
-        'Franky is a curious and cheerful Beagle. A great partner for playful and healthy puppies.', 90,
+        2, 'Sigma', '2021-02-26', 1000, NULL,
+        'Sigma is a curious and cheerful Beagle. A great partner for playful and healthy puppies.', 90,
         '2024-01-03 22:01:30'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Margo
@@ -721,8 +720,8 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'King Charles Spaniel'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Tod', '2022-04-15', 2500, NULL,
-        'Tod is a charming and affectionate King Charles Spaniel. A wonderful choice for breeding regal companions.',
+        2, 'Chasecka', '2022-04-15', 2500, NULL,
+        'Chasecka is a charming and affectionate King Charles Spaniel. A wonderful choice for breeding regal companions.',
         100, '2024-11-01 08:23:02'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Max
@@ -756,7 +755,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Siamese'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
         4,
-        'Luna',
+        'Murzik',
         '2021-03-22',
         1200,
         NULL,
@@ -769,7 +768,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Scottish Fold'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
         4,
-        'Cleo',
+        'Cleopatra',
         '2019-05-25',
         1300,
         NULL,
@@ -777,7 +776,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         100,
         '2024-03-25 09:00:00'),
 
-       ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'),
+       ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Chris Wilson
         (SELECT city_id FROM City WHERE city_name = 'Paris'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Persian'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
@@ -821,7 +820,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Scottish Fold'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
         6,
-        'Whiskers',
+        'Baron',
         '2021-12-01',
         1100,
         NULL,
@@ -847,7 +846,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Labrador Retriever'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
         7,
-        'Buddy',
+        'PiDidi',
         '2020-11-11',
         1800,
         NULL,
@@ -860,7 +859,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'German Shepherd'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
         7,
-        'Max',
+        'Rizzler',
         '2020-02-20',
         2200,
         NULL,
@@ -873,7 +872,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Budgerigar'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Parrot'),
         8,
-        'Sky',
+        'Kesha',
         '2022-07-05',
         50,
         NULL,
@@ -886,7 +885,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Roborovski Dwarf Hamster'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Hamster'),
         8,
-        'Daisy',
+        'Oparysh',
         '2023-01-10',
         40,
         NULL,
@@ -899,7 +898,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Labrador Retriever'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
         9,
-        'Max',
+        'Cherchil',
         '2020-11-11',
         1800,
         NULL,
@@ -912,7 +911,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Persian'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
         9,
-        'Bella',
+        'Zoja',
         '2021-05-20',
         1500,
         NULL,
@@ -925,7 +924,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT breed_id FROM breed WHERE breed_name = 'Goldfish'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Fish'),
         9,
-        'Goldie',
+        'Akulina',
         '2023-03-15',
         300,
         NULL,
@@ -946,7 +945,6 @@ VALUES
 (NULL, 9, '2024-11-11 10:00:00', true, 'https://example.com/photos/users/rahul_9_profile.jpg'),
 
 -- Pet photos
--- Snusicha
 (1, NULL, '2024-01-08 11:00:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo1.jpg'),
 (1, NULL, '2024-01-08 11:05:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo2.jpg'),
 (1, NULL, '2024-01-08 11:10:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo3.jpg'),
@@ -969,13 +967,12 @@ VALUES
 (5, NULL, '2024-02-08 08:15:00', true, 'https://example.com/photos/pets/Ajkosik_user1_photo2.jpg'),
 (5, NULL, '2024-02-08 08:20:00', true, 'https://example.com/photos/pets/Ajkosik_user1_photo3.jpg'),
 
--- Пользователь 2 (Марго)
 (6, NULL, '2024-01-02 12:30:00', true, 'https://example.com/photos/pets/Pusicka_user2_photo1.jpg'),
 (6, NULL, '2024-01-02 12:35:00', true, 'https://example.com/photos/pets/Pusicka_user2_photo2.jpg'),
 (6, NULL, '2024-01-02 12:40:00', true, 'https://example.com/photos/pets/Pusicka_user2_photo3.jpg'),
 
-(7, NULL, '2024-01-02 13:00:00', true, 'https://example.com/photos/pets/Daisy_user2_photo1.jpg'),
-(7, NULL, '2024-01-02 13:05:00', true, 'https://example.com/photos/pets/Daisy_user2_photo2.jpg'),
+(7, NULL, '2024-01-02 13:00:00', true, 'https://example.com/photos/pets/Skibidi_user2_photo1.jpg'),
+(7, NULL, '2024-01-02 13:05:00', true, 'https://example.com/photos/pets/Skibidi_user2_photo2.jpg'),
 
 (8, NULL, '2024-01-02 13:10:00', true, 'https://example.com/photos/pets/Tuz_user2_photo1.jpg'),
 (8, NULL, '2024-01-02 13:15:00', true, 'https://example.com/photos/pets/Tuz_user2_photo2.jpg'),
@@ -984,9 +981,9 @@ VALUES
 (9, NULL, '2024-01-02 13:25:00', true, 'https://example.com/photos/pets/Dusnilka_user2_photo1.jpg'),
 (9, NULL, '2024-01-02 13:30:00', true, 'https://example.com/photos/pets/Dusnilka_user2_photo2.jpg'),
 
-(10, NULL, '2024-01-03 23:00:00', true, 'https://example.com/photos/pets/Franky_user2_photo1.jpg'),
-(10, NULL, '2024-01-03 23:05:00', true, 'https://example.com/photos/pets/Franky_user2_photo2.jpg'),
-(10, NULL, '2024-01-03 23:10:00', true, 'https://example.com/photos/pets/Franky_user2_photo3.jpg'),
+(10, NULL, '2024-01-03 23:00:00', true, 'https://example.com/photos/pets/Sigma_user2_photo1.jpg'),
+(10, NULL, '2024-01-03 23:05:00', true, 'https://example.com/photos/pets/Sigma_user2_photo2.jpg'),
+(10, NULL, '2024-01-03 23:10:00', true, 'https://example.com/photos/pets/Sigma_user2_photo3.jpg'),
 
 (11, NULL, '2024-01-03 10:00:00', true, 'https://example.com/photos/pets/Archi_user2_photo1.jpg'),
 (11, NULL, '2024-01-03 10:05:00', true, 'https://example.com/photos/pets/Archi_user2_photo2.jpg'),
@@ -1005,9 +1002,9 @@ VALUES
 (15, NULL, '2024-10-11 06:00:00', true, 'https://example.com/photos/pets/Flex_user2_photo1.jpg'),
 (15, NULL, '2024-10-11 06:05:00', true, 'https://example.com/photos/pets/Flex_user2_photo2.jpg'),
 
-(16, NULL, '2024-11-01 09:00:00', true, 'https://example.com/photos/pets/Tod_user2_photo1.jpg'),
-(16, NULL, '2024-11-01 09:05:00', true, 'https://example.com/photos/pets/Tod_user2_photo2.jpg'),
-(16, NULL, '2024-11-01 09:10:00', true, 'https://example.com/photos/pets/Tod_user2_photo3.jpg'),
+(16, NULL, '2024-11-01 09:00:00', true, 'https://example.com/photos/pets/Chasecka_user2_photo1.jpg'),
+(16, NULL, '2024-11-01 09:05:00', true, 'https://example.com/photos/pets/Chasecka_user2_photo2.jpg'),
+(16, NULL, '2024-11-01 09:10:00', true, 'https://example.com/photos/pets/Chasecka_user2_photo3.jpg'),
 
 (17, NULL, '2024-03-22 11:00:00', true, 'https://example.com/photos/pets/Goldie_user3_photo1.jpg'),
 (17, NULL, '2024-03-22 11:05:00', true, 'https://example.com/photos/pets/Goldie_user3_photo2.jpg'),
@@ -1016,9 +1013,9 @@ VALUES
 (18, NULL, '2024-03-22 12:05:00', true, 'https://example.com/photos/pets/Chewy_user3_photo2.jpg'),
 (18, NULL, '2024-03-22 12:10:00', true, 'https://example.com/photos/pets/Chewy_user3_photo3.jpg'),
 
-(19, NULL, '2024-03-26 09:00:00', true, 'https://example.com/photos/pets/Luna_user4_photo1.jpg'),
-(19, NULL, '2024-03-26 09:05:00', true, 'https://example.com/photos/pets/Luna_user4_photo2.jpg'),
-(19, NULL, '2024-03-26 09:10:00', true, 'https://example.com/photos/pets/Luna_user4_photo3.jpg'),
+(19, NULL, '2024-03-26 09:00:00', true, 'https://example.com/photos/pets/Murzik_user4_photo1.jpg'),
+(19, NULL, '2024-03-26 09:05:00', true, 'https://example.com/photos/pets/Murzik_user4_photo2.jpg'),
+(19, NULL, '2024-03-26 09:10:00', true, 'https://example.com/photos/pets/Murzik_user4_photo3.jpg'),
 
 (20, NULL, '2024-03-26 09:15:00', true, 'https://example.com/photos/pets/Cleo_user4_photo1.jpg'),
 (20, NULL, '2024-03-26 09:20:00', true, 'https://example.com/photos/pets/Cleo_user4_photo2.jpg'),
@@ -1068,15 +1065,15 @@ INSERT INTO pet_preference (profile_id, min_age, max_age, min_price, max_price, 
 VALUES
 -- Snusicha
 (1, 2, 6, 2000, 3000, 100, 100, NULL),
--- Tod
+-- Chasecka
 (16, 1, 3, 4000, 6000, 100, NULL, NULL),
 -- Pusicka
 (6, 3, 4, 1500, 2000, 100, NULL, NULL),
--- Buddy
+-- PiDidi
 (26, 2, 4, 800, 1500, 90, NULL, NULL),
--- Cleo
+-- Cleopatra
 (20, 1, 6, 1000, 1200, 100, NULL, NULL),
--- Whiskers
+-- Baron
 (24, 4, 7, 1200, 1400, NULL, NULL, NULL),
 -- Goldie
 (17, 1, 4, 200, 400, NULL, NULL, NULL),
@@ -1086,7 +1083,7 @@ VALUES
 (22, 1, 4, 30, 50, NULL, NULL, NULL),
 -- Chewy
 (18, 2, 4, 25, 40, NULL, NULL, NULL),
--- Bella
+-- Zoja
 (31, 4, 6, 1500, 1700, NULL, NULL, NULL),
 -- Simba
 (21, 3, 4, 1400, 1600, NULL, NULL, NULL),
@@ -1096,7 +1093,7 @@ VALUES
 (3, NULL, NULL, 1000, 1500, NULL, NULL, NULL),
 -- Bobik
 (4, NULL, NULL, NULL, NULL, 90, NULL, NULL),
--- Daisy
+-- Skibidi
 (7, NULL, 6, NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO country_preference (country_id, preference_id)
@@ -1104,19 +1101,19 @@ VALUES
 -- Snusicha
 ((SELECT country_id FROM country WHERE country_name = 'Czechia'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 1)),
--- Tod
+-- Chasecka
 ((SELECT country_id FROM country WHERE country_name = 'Czechia'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 16)),
 -- Pusicka
 ((SELECT country_id FROM country WHERE country_name = 'United Kingdom'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 6)),
--- Buddy
+-- PiDidi
 ((SELECT country_id FROM country WHERE country_name = 'Czechia'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 26)),
--- Cleo
+-- Cleopatra
 ((SELECT country_id FROM country WHERE country_name = 'Russia'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 20)),
--- Whiskers
+-- Baron
 ((SELECT country_id FROM country WHERE country_name = 'Russia'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 24)),
 -- Goldie
@@ -1131,7 +1128,7 @@ VALUES
 -- Chewy
 ((SELECT country_id FROM country WHERE country_name = 'Uzbekistan'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 18)),
--- Bella
+-- Zoja
 ((SELECT country_id FROM country WHERE country_name = 'France'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 31)),
 -- Simba
@@ -1143,19 +1140,19 @@ VALUES
 -- Snusicha
 ((SELECT city_id FROM city WHERE city_name = 'Prague'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 1)),
--- Tod
+-- Chasecka
 ((SELECT city_id FROM city WHERE city_name = 'Prague'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 16)),
 -- Pusicka
 ((SELECT city_id FROM city WHERE city_name = 'London'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 6)),
--- Buddy
+-- PiDidi
 ((SELECT city_id FROM city WHERE city_name = 'Prague'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 26)),
--- Cleo
+-- Cleopatra
 ((SELECT city_id FROM city WHERE city_name = 'Moscow'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 20)),
--- Whiskers
+-- Baron
 ((SELECT city_id FROM city WHERE city_name = 'Saint Petersburg'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 24)),
 -- Goldie
@@ -1170,7 +1167,7 @@ VALUES
 -- Chewy
 ((SELECT city_id FROM city WHERE city_name = 'Tashkent'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 18)),
--- Bella
+-- Zoja
 ((SELECT city_id FROM city WHERE city_name = 'Paris'),
  (SELECT preference_id FROM pet_preference WHERE profile_id = 31)),
 -- Simba
@@ -1178,16 +1175,16 @@ VALUES
  (SELECT preference_id FROM pet_preference WHERE profile_id = 21));
 
 INSERT INTO pet_like (profile_initiator_id, profile_target_id, created_datetime)
--- 1. Mutual likes: Snusicha (user_id = 1) and Tod (user_id = 2)
+-- 1. Mutual likes: Snusicha (user_id = 1) and Chasecka (user_id = 2)
 VALUES (1, 16, '2024-01-08 09:30:12'),
        (16, 1, '2024-01-10 04:01:01'),
--- 2. Mutual likes: Pusicka (user_id = 2) and Buddy (user_id = 7)
+-- 2. Mutual likes: Pusicka (user_id = 2) and PiDidi (user_id = 7)
        (6, 26, '2024-01-01 06:00:00'),
        (26, 6, '2024-10-11 11:00:00'),
--- 3. Mutual likes: Daisy (user_id = 2) and Buddy (user_id = 7)
+-- 3. Mutual likes: Skibidi (user_id = 2) and PiDidi (user_id = 7)
        (7, 26, '2024-01-01 07:00:00'),
        (26, 7, '2024-10-11 12:00:00'),
--- 4. Mutual likes: Cleo (user_id = 4) and Whiskers (user_id = 6)
+-- 4. Mutual likes: Cleopatra (user_id = 4) and Baron (user_id = 6)
        (20, 24, '2024-03-25 10:00:00'),
        (24, 20, '2024-05-07 10:00:00'),
 -- 5. Mutual likes: Goldie (user_id = 3) and Nesushka (user_id = 5)
@@ -1196,77 +1193,70 @@ VALUES (1, 16, '2024-01-08 09:30:12'),
 -- 6. Mutual likes: Nibbles (user_id = 5) and Chewy (user_id = 3)
        (22, 18, '2024-09-01 09:00:00'),
        (18, 22, '2024-03-21 15:00:00'),
--- 7. Mutual likes: Bella (user_id = 9) and Simba (user_id = 4)
+-- 7. Mutual likes: Zoja (user_id = 9) and Simba (user_id = 4)
        (31, 21, '2024-11-10 12:00:00'),
        (21, 31, '2024-03-25 13:00:00'),
 
 -- Non-mutual likes
--- 1. Max (user_id = 9) liked Daisy (user_id = 2), but Daisy did not like Max
+-- 1. Cherchil (user_id = 9) liked Skibidi (user_id = 2), but Skibidi did not like Cherchil
        (30, 7, '2024-11-10 13:10:00'),
--- 2. Tulupchik (user_id = 1) liked Luna (user_id = 4), but Luna did not like Tulupchik
+-- 2. Tulupchik (user_id = 1) liked Murzik (user_id = 4), but Murzik did not like Tulupchik
        (2, 19, '2024-02-10 08:00:00'),
--- 3. Chewy (user_id = 3) liked Daisy (user_id = 8), but Daisy did not like Chewy
+-- 3. Chewy (user_id = 3) liked Oparysh (user_id = 8), but Oparysh did not like Chewy
        (18, 29, '2024-03-21 16:00:00'),
--- 4. Goldie (user_id = 9) liked Goldie (user_id = 3), but Goldie (user_id = 3) did not like Goldie (user_id = 9)
+-- 4. Akulina (user_id = 9) liked Goldie (user_id = 3), but Goldie (user_id = 3) did not like Akulina (user_id = 9)
        (32, 17, '2024-11-10 14:10:00'),
--- 5. Whiskers (user_id = 6) liked Luna (user_id = 4), but Luna did not like Whiskers
+-- 5. Baron (user_id = 6) liked Murzik (user_id = 4), but Murzik did not like Baron
        (24, 19, '2024-05-07 11:00:00');
 
--- Беседа 1: Snusicha и Tod
+-- Snusicha и Chasecka
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
-VALUES
-(1, 1, 'Привет, Tod! Приятно познакомиться. 🐾', '2024-01-08 10:05:00'),
-(1, 16, 'Привет, Snusicha! Взаимно приятно. Как твои дела?', '2024-01-08 10:07:00'),
-(1, 1, 'Все отлично! Наслаждаюсь солнечным днем в Праге. Ты любишь гулять в парке?', '2024-01-08 10:10:00'),
-(1, 16, 'Конечно! Парк — мое любимое место. Может, встретимся там как-нибудь?', '2024-01-08 10:12:00');
+VALUES (1, 1, 'Hi, Chasecka! Nice to meet you. 🐾', '2024-01-08 10:05:00'),
+       (1, 16, 'Hi, Snusicha! Nice to meet you. How are you doing?', '2024-01-08 10:07:00'),
+       (1, 1, 'Everything is perfect! Enjoying a sunny day in Prague. Do you like to walk in the park?', '2024-01-08 10:10:00'),
+       (1, 16, 'Of course! The park is my favourite place. Maybe we could meet there sometime?', '2024-01-08 10:12:00');
 
--- Беседа 2: Pusicka и Buddy
+-- Pusicka и PiDidi
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
-VALUES
-(2, 6, 'Привет, Buddy! Твои фото просто замечательные! 🐶', '2024-01-01 06:15:00'),
-(2, 26, 'Спасибо, Pusicka! Ты тоже отлично выглядишь. Ты из Лондона?', '2024-01-01 06:17:00'),
-(2, 6, 'Нет, я из Праги, но иногда бываю в Лондоне. Было бы здорово поиграть вместе!', '2024-01-01 06:20:00'),
-(2, 26, 'Звучит отлично! Дай знать, когда будешь в городе.', '2024-01-01 06:22:00');
+VALUES (2, 6, 'Hi PiDidi! Your photos are just wonderful! 🐶', '2024-01-01 06:15:00'),
+       (2, 26, 'Thanks, Pusicka! You look great too. Are you from London?', '2024-01-01 06:17:00'),
+       (2, 6, 'No, Im from Prague, but sometimes Im in London. It would be great to play together!', '2024-01-01 06:20:00'),
+       (2, 26, 'Sounds great! Let me know when you re in town.', '2024-01-01 06:22:00');
 
--- Беседа 3: Daisy и Buddy
+-- Skibidi и PiDidi
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
-VALUES
-(3, 7, 'Привет, Buddy! Приятно познакомиться с другим лабрадором!', '2024-01-01 07:15:00'),
-(3, 26, 'Привет, Daisy! Взаимно. Чем занимаешься в свободное время?', '2024-01-01 07:17:00'),
-(3, 7, 'Люблю долгие прогулки и плескаться в воде. А ты?', '2024-01-01 07:20:00'),
-(3, 26, 'То же самое! Может, как-нибудь устроим совместную прогулку?', '2024-01-01 07:22:00');
+VALUES (3, 7, 'Hi PiDidi! Nice to meet another labrador!', '2024-01-01 07:15:00'),
+       (3, 26, 'Hi, Skibidi! Likewise. What do you do in your spare time?', '2024-01-01 07:17:00'),
+       (3, 7, 'I like long walks and splashing in the water. What about you?', '2024-01-01 07:20:00'),
+       (3, 26, 'Same thing! Maybe we could go for a walk together sometime.', '2024-01-01 07:22:00');
 
--- Беседа 4: Cleo и Whiskers
+-- Cleopatra и Baron
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
-VALUES
-(4, 20, 'Здравствуйте, Whiskers! Ваш профиль привлек мое внимание.', '2024-05-07 10:15:00'),
-(4, 24, 'Привет, Cleo! Спасибо. Вы потрясающая шотландская вислоухая.', '2024-05-07 10:17:00'),
-(4, 20, 'Вы очень любезны! Может, поделимся историями за миской молока?', '2024-05-07 10:20:00'),
-(4, 24, 'С удовольствием. Давайте договоримся о встрече.', '2024-05-07 10:22:00');
+VALUES (4, 20, 'Hello Baron! Your profile caught my attention.', '2024-05-07 10:15:00'),
+       (4, 24, 'Hi, Cleopatra! Thank you. You are an amazing Scottish lop.', '2024-05-07 10:17:00'),
+       (4, 20, 'You are very kind! Shall we share stories over a bowl of milk?', '2024-05-07 10:20:00'),
+       (4, 24, 'Id love to. Lets make an appointment.', '2024-05-07 10:22:00');
 
--- Беседа 5: Goldie и Nesushka
+-- Goldie и Nesushka
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
-VALUES
-(5, 17, 'Привет, Nesushka! Как плавается сегодня?', '2024-03-21 14:15:00'),
-(5, 23, 'Привет, Goldie! Да, наслаждаюсь водой. А ты?', '2024-03-21 14:17:00'),
-(5, 17, 'Тоже! Отличный день для плавания. Может, поплаваем вместе как-нибудь?', '2024-03-21 14:20:00'),
-(5, 23, 'С удовольствием! Давай спланируем.', '2024-03-21 14:22:00');
+VALUES (5, 17, 'Hi, Nesushka! How is your swim today?', '2024-03-21 14:15:00'),
+       (5, 23, 'Hey, Goldie! Yeah, enjoying the water. How about you?', '2024-03-21 14:17:00'),
+       (5, 17, 'Ditto! It is a great day for swimming. Maybe we could swim together sometime.', '2024-03-21 14:20:00'),
+       (5, 23, 'Id love to! Lets plan it.', '2024-03-21 14:22:00');
 
--- Беседа 6: Nibbles и Chewy
+-- Nibbles и Chewy
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
-VALUES
-(6, 22, 'Привет, Chewy! Слышала, ты любишь исследовать!', '2024-09-01 09:15:00'),
-(6, 18, 'Привет, Nibbles! Да, обожаю находить новые места для запасов!', '2024-09-01 09:17:00'),
-(6, 22, 'Я тоже! Может, поделимся советами?', '2024-09-01 09:20:00'),
-(6, 18, 'Отличная идея! Давай обсудим.', '2024-09-01 09:22:00');
+VALUES (6, 22, 'Hey, Chewy! I hear you like to explore!', '2024-09-01 09:15:00'),
+       (6, 18, 'Hi, Nibbles! Yes, love finding new places to stock up!', '2024-09-01 09:17:00'),
+       (6, 22, 'Me too! Maybe we can share some tips?', '2024-09-01 09:20:00'),
+       (6, 18, 'That a great idea! Lets talk about it.', '2024-09-01 09:22:00');
 
--- Беседа 7: Bella и Simba
+-- Zoja и Simba
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
-VALUES
-(7, 31, 'Привет, Simba! У тебя такой величественный вид!', '2024-11-10 12:15:00'),
-(7, 21, 'Привет, Bella! Спасибо, ты тоже очень элегантна.', '2024-11-10 12:17:00'),
-(7, 31, 'Хотелось бы встретиться когда-нибудь.', '2024-11-10 12:20:00'),
-(7, 21, 'С удовольствием. Давай найдем подходящее время.', '2024-11-10 12:22:00');
+VALUES (7, 31, 'Hi, Simba! You have such a majestic look!', '2024-11-10 12:15:00'),
+       (7, 21, 'Hi Zoja! Thank you, you are very elegant too.', '2024-11-10 12:17:00'),
+       (7, 31, 'I would like to meet someday.', '2024-11-10 12:20:00'),
+       (7, 21, 'Id love to. Let''s find a good time.', '2024-11-10 12:22:00');
 
 INSERT INTO user_grade (user_giver_id, user_receiver_id, grade, graded_datetime, content)
 VALUES
