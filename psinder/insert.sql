@@ -582,61 +582,94 @@ VALUES (1, (SELECT language_id FROM language WHERE language_name = 'English')),
        (10, (SELECT language_id FROM language WHERE language_name = 'Hindi'));
 
 INSERT INTO pet_profile (gender_id, city_id, breed_id, type_id, user_id, pet_name, date_of_birth, price,
-                         certification_url, profile_description, purebred_percantage, created_datetime)
+                         certification_url, profile_description, purebred_percentage, created_datetime)
 VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'King Charles Spaniel'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        1, 'Snusicha', '2022-04-05', 5000, NULL,
+        1,
+        'Snusicha',
+        '2022-04-05',
+        5000,
+        'https://psinder.com/certification/pets/snusicha_1.url',
         'Meet Snusicha, a stunning King Charles Spaniel with a charming personality and impeccable lineage. ' ||
         'Playful yet calm, Snusicha adores cuddles, long walks, and, of course, being the center of attention. ' ||
         'If you’re looking for a top-quality companion for breeding, Snusicha is ready to meet her match! 🐾 ' ||
         'Feel free to contact me for further details or to arrange a meet-up. Let’s make some adorable King Charles Spaniel puppies together! 🐶✨',
-        100, '2024-01-08 06:00:00'),
+        100,
+        '2024-01-08 06:00:00'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Ragdoll'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
-        1, 'Tulupchik', '2021-04-12', 1300, NULL,
+        1,
+        'Tulupchik',
+        '2021-04-12',
+        1300,
+        'https://psinder.com/certification/pets/tulupchik_1.url',
         'Tulupchik is my fluffy little gentleman with the softest fur and the sweetest personality. ' ||
         'He loves lounging in sunny spots and following me around the house for cuddles. ' ||
-        'If you’re looking for a calm and affectionate companion, Tulupchik is the one!', 100, '2024-02-09 11:30:12'),
+        'If you’re looking for a calm and affectionate companion, Tulupchik is the one!',
+        100,
+        '2024-02-09 11:30:12'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Munchkin'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
-        1, 'Kozjavka', '2022-02-05', 1250, NULL,
+        1,
+        'Kozjavka',
+        '2022-02-05',
+        1250,
+        'https://psinder.com/certification/pets/kozjavka_1.url',
         'Meet Kozjavka, my little adventurer with the tiniest legs and the biggest heart. ' ||
         'He’s playful, curious, and always up for exploring new corners of the house. ' ||
-        'A perfect companion for someone who loves a quirky and lovable pet!', 100, '2024-02-09 11:02:30'),
+        'A perfect companion for someone who loves a quirky and lovable pet!',
+        100,
+        '2024-02-09 11:02:30'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Maine Coon'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
-        1, 'Bobik', '2020-01-25', 1400, NULL,
+        1,
+        'Bobik',
+        '2020-01-25',
+        1400,
+        'https://psinder.com/certification/pets/bobik_1.url',
         'Bobik is my majestic Maine Coon with a luxurious coat and an even more luxurious personality. ' ||
         'He’s a friendly giant who loves attention and will greet you with a happy meow every time you walk in. ' ||
-        'Perfect for someone who wants a loving, regal companion!', 100, '2024-02-08 07:30:00'),
+        'Perfect for someone who wants a loving, regal companion!',
+        100,
+        '2024-02-08 07:30:00'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Exotic Shorthair'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
-        1, 'Ajkosik', '2020-01-25', 1000, NULL,
+        1,
+        'Ajkosik',
+        '2020-01-25',
+        1000,
+        'https://psinder.com/certification/pets/ajkosik_1.url',
         'Ajkosik is my charming Exotic Shorthair with the cutest squishy face and a heart full of love. ' ||
         'He’s calm, affectionate, and loves to curl up beside you for a cozy nap. ' ||
-        'If you’re looking for a sweet and easygoing companion, Ajkosik is ready to meet you!', 100,
+        'If you’re looking for a sweet and easygoing companion, Ajkosik is ready to meet you!',
+        100,
         '2024-02-08 07:30:00'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Labrador Retriever'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Pusicka', '2021-06-15', 1000, NULL,
-        'Pusicka is a playful and loyal companion, perfect for breeding. Gentle, friendly, and full of energy.', 90,
+        2,
+        'Pusicka',
+        '2021-06-15',
+        1000,
+        'https://psinder.com/certification/pets/pusicka_2.url',
+        'Pusicka is a playful and loyal companion, perfect for breeding. Gentle, friendly, and full of energy.',
+        90,
         '2024-01-01 12:11:00'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Margo
@@ -647,7 +680,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Skibidi',
         '2021-02-20',
         1700,
-        NULL,
+        'https://psinder.com/certification/pets/skibidi_2.url',
         'A friendly Labrador Retriever who loves kids and outdoor activities.',
         100,
         '2024-01-01 03:00:00'),
@@ -656,7 +689,11 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'London'),
         (SELECT breed_id FROM breed WHERE breed_name = 'German Shepherd'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Tuz', '2020-11-25', 2300, NULL,
+        2,
+        'Tuz',
+        '2020-11-25',
+        2300,
+        'https://psinder.com/certification/pets/tuz_2.url',
         'Tuz is a strong and intelligent German Shepherd ready to sire amazing puppies. Loyal and confident.', 100,
         '2024-01-02 11:11:00'),
 
@@ -664,68 +701,108 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         (SELECT city_id FROM City WHERE city_name = 'Sofia'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Bulldog'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Dusnilka', '2021-08-30', 900, NULL,
-        'Dusnilka is a loving and calm Bulldog with great temperament. Perfect choice for breeding Bulldogs.', 80,
+        2,
+        'Dusnilka',
+        '2021-08-30',
+        900,
+        NULL,
+        'Dusnilka is a loving and calm Bulldog with great temperament. Perfect choice for breeding Bulldogs.',
+        80,
         '2024-01-02 11:20:10'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Beagle'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Sigma', '2021-02-26', 1000, NULL,
-        'Sigma is a curious and cheerful Beagle. A great partner for playful and healthy puppies.', 90,
+        2,
+        'Sigma',
+        '2021-02-26',
+        1000,
+        NULL,
+        'Sigma is a curious and cheerful Beagle. A great partner for playful and healthy puppies.',
+        90,
         '2024-01-03 22:01:30'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Grodno'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Poodle'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Archi', '2021-04-05', 1000, NULL,
-        'Archi is an elegant and intelligent Poodle. Ideal for anyone looking to breed a charming companion.', 90,
+        2,
+        'Archi',
+        '2021-04-05',
+        1000,
+        'https://psinder.com/certification/pets/archi_2.url',
+        'Archi is an elegant and intelligent Poodle. Ideal for anyone looking to breed a charming companion.',
+        90,
         '2024-01-03 09:12:11'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Grodno'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Rottweiler'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Vorona', '2022-01-18', 1000, NULL,
-        'Vorona is a bold and powerful Rottweiler. Loyal, confident, and perfect for strong, healthy litters.', 90,
+        2,
+        'Vorona',
+        '2022-01-18',
+        1000,
+        'https://psinder.com/certification/pets/vorona_2.url',
+        'Vorona is a bold and powerful Rottweiler. Loyal, confident, and perfect for strong, healthy litters.',
+        90,
         '2024-04-01 02:11:59'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Brno'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Yorkshire Terrier'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Krikacka', '2022-07-12', 1000, NULL,
-        'Krikacka is a lively and affectionate Yorkie. Perfect for breeding tiny bundles of joy.', 90,
+        2,
+        'Krikacka',
+        '2022-07-12',
+        1000,
+        'https://psinder.com/certification/pets/krikacka_2.url',
+        'Krikacka is a lively and affectionate Yorkie. Perfect for breeding tiny bundles of joy.',
+        90,
         '2024-02-09 07:33:22'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Brno'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Boxer'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Chempion', '2021-05-20', 1000, NULL,
-        'Chempion is an athletic and energetic Boxer with a loving nature. Ready to pass on his champion traits.', 90,
+        2,
+        'Chempion',
+        '2021-05-20',
+        1000,
+        NULL,
+        'Chempion is an athletic and energetic Boxer with a loving nature. Ready to pass on his champion traits.',
+        90,
         '2024-02-08 07:30:10'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Liberec'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Dachshund'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Flex', '2021-10-01', 1000, NULL,
-        'Flex is a spirited and clever Dachshund. Great for breeding playful and loyal pups.', 90,
+        2,
+        'Flex',
+        '2021-10-01',
+        1000,
+        NULL,
+        'Flex is a spirited and clever Dachshund. Great for breeding playful and loyal pups.',
+        90,
         '2024-10-11 05:59:59'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Margo
         (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'King Charles Spaniel'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Dog'),
-        2, 'Chasecka', '2022-04-15', 2500, NULL,
+        2,
+        'Chasecka',
+        '2022-04-15',
+        2500,
+        NULL,
         'Chasecka is a charming and affectionate King Charles Spaniel. A wonderful choice for breeding regal companions.',
-        100, '2024-11-01 08:23:02'),
+        100,
+        '2024-11-01 08:23:02'),
 
        ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Max
-        (SELECT city_id FROM City WHERE city_name = 'Birmingham'),
+        (SELECT city_id FROM City WHERE city_name = 'Prague'),
         (SELECT breed_id FROM breed WHERE breed_name = 'Goldfish'),
         (SELECT type_id FROM animal_type WHERE type_name = 'Fish'),
         3,
@@ -745,7 +822,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Chewy',
         '2023-04-15',
         35,
-        NULL,
+        'https://psinder.com/certification/pets/chewy_3.url',
         'A curious male Syrian hamster looking for a mate.',
         NULL,
         '2024-03-21 12:00:00'),
@@ -758,7 +835,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Murzik',
         '2021-03-22',
         1200,
-        NULL,
+        'https://psinder.com/certification/pets/murzik_4.url',
         'A graceful Siamese cat with striking blue eyes and a curious nature.',
         100,
         '2024-03-25 08:00:00'),
@@ -771,7 +848,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Cleopatra',
         '2019-05-25',
         1300,
-        NULL,
+        'https://psinder.com/certification/pets/cleopatra_4.url',
         'A beautiful Scottish Fold with a gentle nature.',
         100,
         '2024-03-25 09:00:00'),
@@ -784,7 +861,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Simba',
         '2020-06-10',
         1600,
-        NULL,
+        'https://psinder.com/certification/pets/simba_4.url',
         'A majestic male Persian cat with a luxurious coat. Seeking a female Persian for breeding.',
         100,
         '2024-03-25 12:00:00'),
@@ -810,7 +887,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Nesushka',
         '2023-02-11',
         300,
-        NULL,
+        'https://psinder.com/certification/pets/nesushka_5.url',
         'Radiant goldfish ready for elegant and quality breeding.',
         100,
         '2024-09-01 07:00:00'),
@@ -823,7 +900,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Baron',
         '2021-12-01',
         1100,
-        NULL,
+        'https://psinder.com/certification/pets/baron_6.url',
         'A playful Scottish Fold with adorable folded ears and a loving demeanor.',
         100,
         '2024-05-07 08:00:00'),
@@ -836,7 +913,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Bella',
         '2021-11-05',
         1800,
-        NULL,
+        'https://psinder.com/certification/pets/bella_6.url',
         'A cheerful Beagle with a loving nature.',
         100,
         '2024-05-07 09:00:00'),
@@ -849,7 +926,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'PiDidi',
         '2020-11-11',
         1800,
-        NULL,
+        'https://psinder.com/certification/pets/pididi_7.url',
         'An enthusiastic Labrador Retriever who loves playing fetch and swimming.',
         100,
         '2024-10-11 09:00:00'),
@@ -862,7 +939,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Rizzler',
         '2020-02-20',
         2200,
-        NULL,
+        'https://psinder.com/certification/pets/rizzler_7.url',
         'A strong and intelligent German Shepherd ready to sire amazing puppies.',
         100,
         '2024-10-11 10:00:00'),
@@ -875,7 +952,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Kesha',
         '2022-07-05',
         50,
-        NULL,
+        'https://psinder.com/certification/pets/kesha_8.url',
         'A vibrant Budgerigar with beautiful plumage and a cheerful song.',
         NULL,
         '2024-11-02 08:00:00'),
@@ -914,7 +991,7 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Zoja',
         '2021-05-20',
         1500,
-        NULL,
+        'https://psinder.com/certification/pets/zoja_9.url',
         'A beautiful Persian cat with a luxurious coat. Looking for a male companion for breeding.',
         100,
         '2024-11-10 10:00:00'),
@@ -927,141 +1004,195 @@ VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Masha
         'Akulina',
         '2023-03-15',
         300,
-        NULL,
+        'https://psinder.com/certification/pets/akulina_9.url',
         'A radiant goldfish ready for quality breeding.',
         100,
         '2024-11-10 11:00:00');
+-- Add 4 more cats for testing queries
+INSERT INTO pet_profile (gender_id, city_id, breed_id, type_id, user_id, pet_name, date_of_birth, price,
+                         certification_url, profile_description, purebred_percentage, created_datetime)
+VALUES ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Pat Kim
+        (SELECT city_id FROM City WHERE city_name = 'Paris'),
+        (SELECT breed_id FROM breed WHERE breed_name = 'Persian'),
+        (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+        5,
+        'Princess',
+        '2023-05-01',
+        1800,
+        'https://psinder.com/certification/pets/princess_5.url',
+        'A fluffy princess looking for a prince.',
+        100,
+        '2024-03-26 10:00:00'),
+
+       ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Pat Kim
+        (SELECT city_id FROM City WHERE city_name = 'Paris'),
+        (SELECT breed_id FROM breed WHERE breed_name = 'Persian'),
+        (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+        5,
+        'Duchess',
+        '2022-11-15',
+        2000,
+        'https://psinder.com/certification/pets/duchess_5.url',
+        'Regal and ready for a royal companion.',
+        95,
+        '2024-03-26 11:00:00'),
+
+       ((SELECT gender_id FROM Gender WHERE gender_name = 'Female'), -- Pat Kim
+        (SELECT city_id FROM City WHERE city_name = 'Paris'),
+        (SELECT breed_id FROM breed WHERE breed_name = 'Persian'),
+        (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+        5,
+        'Marta',
+        '2022-10-12',
+        2000,
+        'https://psinder.com/certification/pets/marta_5.url',
+        'Funny, fluffy and loyal.',
+        100,
+        '2024-03-26 11:30:00'),
+
+       ((SELECT gender_id FROM Gender WHERE gender_name = 'Male'), -- Margo
+        (SELECT city_id FROM City WHERE city_name = 'Prague'),
+        (SELECT breed_id FROM breed WHERE breed_name = 'Russian Blue'),
+        (SELECT type_id FROM animal_type WHERE type_name = 'Cat'),
+        2,
+        'Myavka',
+        '2022-04-20',
+        2500,
+        'https://psinder.com/certification/pets/myavka_2.url',
+        NULL,
+        100,
+        '2024-11-01 08:30:02');
 
 INSERT INTO photo_data (profile_id, user_id, added_datetime, is_active, photo_url)
 VALUES
 -- User photos
-(NULL, 1, '2024-01-08 10:00:00', true, 'https://example.com/photos/users/masha_1_profile.jpg'),
-(NULL, 2, '2024-01-02 10:00:00', true, 'https://example.com/photos/users/margo_2_profile.jpg'),
-(NULL, 3, '2024-03-22 10:00:00', true, 'https://example.com/photos/users/max_3_profile.jpg'),
-(NULL, 4, '2024-03-26 10:00:00', true, 'https://example.com/photos/users/chris_wilson_4_profile.jpg'),
-(NULL, 6, '2024-05-08 10:00:00', true, 'https://example.com/photos/users/katya_6_profile.jpg'),
-(NULL, 7, '2024-10-12 10:00:00', true, 'https://example.com/photos/users/josef_smith_7_profile.jpg'),
-(NULL, 8, '2024-11-03 10:00:00', true, 'https://example.com/photos/users/sarah_connor_8_profile.jpg'),
-(NULL, 9, '2024-11-11 10:00:00', true, 'https://example.com/photos/users/rahul_9_profile.jpg'),
+(NULL, 1, '2024-01-08 10:00:00', true, 'https://psinder.com/photos/users/masha_1_profile.jpg'),
+(NULL, 2, '2024-01-02 10:00:00', true, 'https://psinder.com/photos/users/margo_2_profile.jpg'),
+(NULL, 3, '2024-03-22 10:00:00', true, 'https://psinder.com/photos/users/max_3_profile.jpg'),
+(NULL, 4, '2024-03-26 10:00:00', true, 'https://psinder.com/photos/users/chris_wilson_4_profile.jpg'),
+(NULL, 6, '2024-05-08 10:00:00', true, 'https://psinder.com/photos/users/katya_6_profile.jpg'),
+(NULL, 7, '2024-10-12 10:00:00', true, 'https://psinder.com/photos/users/josef_smith_7_profile.jpg'),
+(NULL, 8, '2024-11-03 10:00:00', true, 'https://psinder.com/photos/users/sarah_connor_8_profile.jpg'),
+(NULL, 9, '2024-11-11 10:00:00', true, 'https://psinder.com/photos/users/rahul_9_profile.jpg'),
 
 -- Pet photos
-(1, NULL, '2024-01-08 11:00:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo1.jpg'),
-(1, NULL, '2024-01-08 11:05:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo2.jpg'),
-(1, NULL, '2024-01-08 11:10:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo3.jpg'),
-(1, NULL, '2024-01-08 11:15:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo4.jpg'),
-(1, NULL, '2024-01-08 11:20:00', true, 'https://example.com/photos/pets/Snusicha_user1_photo5.jpg'),
+(1, NULL, '2024-01-08 11:00:00', true, 'https://psinder.com/photos/pets/Snusicha_user1_photo1.jpg'),
+(1, NULL, '2024-01-08 11:05:00', true, 'https://psinder.com/photos/pets/Snusicha_user1_photo2.jpg'),
+(1, NULL, '2024-01-08 11:10:00', true, 'https://psinder.com/photos/pets/Snusicha_user1_photo3.jpg'),
+(1, NULL, '2024-01-08 11:15:00', true, 'https://psinder.com/photos/pets/Snusicha_user1_photo4.jpg'),
+(1, NULL, '2024-01-08 11:20:00', true, 'https://psinder.com/photos/pets/Snusicha_user1_photo5.jpg'),
 
-(2, NULL, '2024-02-09 12:00:00', true, 'https://example.com/photos/pets/Tulupchik_user1_photo1.jpg'),
-(2, NULL, '2024-02-09 12:05:00', true, 'https://example.com/photos/pets/Tulupchik_user1_photo2.jpg'),
-(2, NULL, '2024-02-09 12:10:00', true, 'https://example.com/photos/pets/Tulupchik_user1_photo3.jpg'),
+(2, NULL, '2024-02-09 12:00:00', true, 'https://psinder.com/photos/pets/Tulupchik_user1_photo1.jpg'),
+(2, NULL, '2024-02-09 12:05:00', true, 'https://psinder.com/photos/pets/Tulupchik_user1_photo2.jpg'),
+(2, NULL, '2024-02-09 12:10:00', true, 'https://psinder.com/photos/pets/Tulupchik_user1_photo3.jpg'),
 
-(3, NULL, '2024-02-09 12:15:00', true, 'https://example.com/photos/pets/Kozjavka_user1_photo1.jpg'),
-(3, NULL, '2024-02-09 12:20:00', true, 'https://example.com/photos/pets/Kozjavka_user1_photo2.jpg'),
-(3, NULL, '2024-02-09 12:25:00', true, 'https://example.com/photos/pets/Kozjavka_user1_photo3.jpg'),
-(3, NULL, '2024-02-09 12:30:00', true, 'https://example.com/photos/pets/Kozjavka_user1_photo4.jpg'),
+(3, NULL, '2024-02-09 12:15:00', true, 'https://psinder.com/photos/pets/Kozjavka_user1_photo1.jpg'),
+(3, NULL, '2024-02-09 12:20:00', true, 'https://psinder.com/photos/pets/Kozjavka_user1_photo2.jpg'),
+(3, NULL, '2024-02-09 12:25:00', true, 'https://psinder.com/photos/pets/Kozjavka_user1_photo3.jpg'),
+(3, NULL, '2024-02-09 12:30:00', true, 'https://psinder.com/photos/pets/Kozjavka_user1_photo4.jpg'),
 
-(4, NULL, '2024-02-08 08:00:00', true, 'https://example.com/photos/pets/Bobik_user1_photo1.jpg'),
-(4, NULL, '2024-02-08 08:05:00', true, 'https://example.com/photos/pets/Bobik_user1_photo2.jpg'),
+(4, NULL, '2024-02-08 08:00:00', true, 'https://psinder.com/photos/pets/Bobik_user1_photo1.jpg'),
+(4, NULL, '2024-02-08 08:05:00', true, 'https://psinder.com/photos/pets/Bobik_user1_photo2.jpg'),
 
-(5, NULL, '2024-02-08 08:10:00', true, 'https://example.com/photos/pets/Ajkosik_user1_photo1.jpg'),
-(5, NULL, '2024-02-08 08:15:00', true, 'https://example.com/photos/pets/Ajkosik_user1_photo2.jpg'),
-(5, NULL, '2024-02-08 08:20:00', true, 'https://example.com/photos/pets/Ajkosik_user1_photo3.jpg'),
+(5, NULL, '2024-02-08 08:10:00', true, 'https://psinder.com/photos/pets/Ajkosik_user1_photo1.jpg'),
+(5, NULL, '2024-02-08 08:15:00', true, 'https://psinder.com/photos/pets/Ajkosik_user1_photo2.jpg'),
+(5, NULL, '2024-02-08 08:20:00', true, 'https://psinder.com/photos/pets/Ajkosik_user1_photo3.jpg'),
 
-(6, NULL, '2024-01-02 12:30:00', true, 'https://example.com/photos/pets/Pusicka_user2_photo1.jpg'),
-(6, NULL, '2024-01-02 12:35:00', true, 'https://example.com/photos/pets/Pusicka_user2_photo2.jpg'),
-(6, NULL, '2024-01-02 12:40:00', true, 'https://example.com/photos/pets/Pusicka_user2_photo3.jpg'),
+(6, NULL, '2024-01-02 12:30:00', true, 'https://psinder.com/photos/pets/Pusicka_user2_photo1.jpg'),
+(6, NULL, '2024-01-02 12:35:00', true, 'https://psinder.com/photos/pets/Pusicka_user2_photo2.jpg'),
+(6, NULL, '2024-01-02 12:40:00', true, 'https://psinder.com/photos/pets/Pusicka_user2_photo3.jpg'),
 
-(7, NULL, '2024-01-02 13:00:00', true, 'https://example.com/photos/pets/Skibidi_user2_photo1.jpg'),
-(7, NULL, '2024-01-02 13:05:00', true, 'https://example.com/photos/pets/Skibidi_user2_photo2.jpg'),
+(7, NULL, '2024-01-02 13:00:00', true, 'https://psinder.com/photos/pets/Skibidi_user2_photo1.jpg'),
+(7, NULL, '2024-01-02 13:05:00', true, 'https://psinder.com/photos/pets/Skibidi_user2_photo2.jpg'),
 
-(8, NULL, '2024-01-02 13:10:00', true, 'https://example.com/photos/pets/Tuz_user2_photo1.jpg'),
-(8, NULL, '2024-01-02 13:15:00', true, 'https://example.com/photos/pets/Tuz_user2_photo2.jpg'),
-(8, NULL, '2024-01-02 13:20:00', true, 'https://example.com/photos/pets/Tuz_user2_photo3.jpg'),
+(8, NULL, '2024-01-02 13:10:00', true, 'https://psinder.com/photos/pets/Tuz_user2_photo1.jpg'),
+(8, NULL, '2024-01-02 13:15:00', true, 'https://psinder.com/photos/pets/Tuz_user2_photo2.jpg'),
+(8, NULL, '2024-01-02 13:20:00', true, 'https://psinder.com/photos/pets/Tuz_user2_photo3.jpg'),
 
-(9, NULL, '2024-01-02 13:25:00', true, 'https://example.com/photos/pets/Dusnilka_user2_photo1.jpg'),
-(9, NULL, '2024-01-02 13:30:00', true, 'https://example.com/photos/pets/Dusnilka_user2_photo2.jpg'),
+(9, NULL, '2024-01-02 13:25:00', true, 'https://psinder.com/photos/pets/Dusnilka_user2_photo1.jpg'),
+(9, NULL, '2024-01-02 13:30:00', true, 'https://psinder.com/photos/pets/Dusnilka_user2_photo2.jpg'),
 
-(10, NULL, '2024-01-03 23:00:00', true, 'https://example.com/photos/pets/Sigma_user2_photo1.jpg'),
-(10, NULL, '2024-01-03 23:05:00', true, 'https://example.com/photos/pets/Sigma_user2_photo2.jpg'),
-(10, NULL, '2024-01-03 23:10:00', true, 'https://example.com/photos/pets/Sigma_user2_photo3.jpg'),
+(10, NULL, '2024-01-03 23:00:00', true, 'https://psinder.com/photos/pets/Sigma_user2_photo1.jpg'),
+(10, NULL, '2024-01-03 23:05:00', true, 'https://psinder.com/photos/pets/Sigma_user2_photo2.jpg'),
+(10, NULL, '2024-01-03 23:10:00', true, 'https://psinder.com/photos/pets/Sigma_user2_photo3.jpg'),
 
-(11, NULL, '2024-01-03 10:00:00', true, 'https://example.com/photos/pets/Archi_user2_photo1.jpg'),
-(11, NULL, '2024-01-03 10:05:00', true, 'https://example.com/photos/pets/Archi_user2_photo2.jpg'),
+(11, NULL, '2024-01-03 10:00:00', true, 'https://psinder.com/photos/pets/Archi_user2_photo1.jpg'),
+(11, NULL, '2024-01-03 10:05:00', true, 'https://psinder.com/photos/pets/Archi_user2_photo2.jpg'),
 
-(12, NULL, '2024-04-01 03:00:00', true, 'https://example.com/photos/pets/Vorona_user2_photo1.jpg'),
-(12, NULL, '2024-04-01 03:05:00', true, 'https://example.com/photos/pets/Vorona_user2_photo2.jpg'),
-(12, NULL, '2024-04-01 03:10:00', true, 'https://example.com/photos/pets/Vorona_user2_photo3.jpg'),
+(12, NULL, '2024-04-01 03:00:00', true, 'https://psinder.com/photos/pets/Vorona_user2_photo1.jpg'),
+(12, NULL, '2024-04-01 03:05:00', true, 'https://psinder.com/photos/pets/Vorona_user2_photo2.jpg'),
+(12, NULL, '2024-04-01 03:10:00', true, 'https://psinder.com/photos/pets/Vorona_user2_photo3.jpg'),
 
-(13, NULL, '2024-02-09 08:00:00', true, 'https://example.com/photos/pets/Krikacka_user2_photo1.jpg'),
-(13, NULL, '2024-02-09 08:05:00', true, 'https://example.com/photos/pets/Krikacka_user2_photo2.jpg'),
+(13, NULL, '2024-02-09 08:00:00', true, 'https://psinder.com/photos/pets/Krikacka_user2_photo1.jpg'),
+(13, NULL, '2024-02-09 08:05:00', true, 'https://psinder.com/photos/pets/Krikacka_user2_photo2.jpg'),
 
-(14, NULL, '2024-02-08 08:30:00', true, 'https://example.com/photos/pets/Chempion_user2_photo1.jpg'),
-(14, NULL, '2024-02-08 08:35:00', true, 'https://example.com/photos/pets/Chempion_user2_photo2.jpg'),
-(14, NULL, '2024-02-08 08:40:00', true, 'https://example.com/photos/pets/Chempion_user2_photo3.jpg'),
+(14, NULL, '2024-02-08 08:30:00', true, 'https://psinder.com/photos/pets/Chempion_user2_photo1.jpg'),
+(14, NULL, '2024-02-08 08:35:00', true, 'https://psinder.com/photos/pets/Chempion_user2_photo2.jpg'),
+(14, NULL, '2024-02-08 08:40:00', true, 'https://psinder.com/photos/pets/Chempion_user2_photo3.jpg'),
 
-(15, NULL, '2024-10-11 06:00:00', true, 'https://example.com/photos/pets/Flex_user2_photo1.jpg'),
-(15, NULL, '2024-10-11 06:05:00', true, 'https://example.com/photos/pets/Flex_user2_photo2.jpg'),
+(15, NULL, '2024-10-11 06:00:00', true, 'https://psinder.com/photos/pets/Flex_user2_photo1.jpg'),
+(15, NULL, '2024-10-11 06:05:00', true, 'https://psinder.com/photos/pets/Flex_user2_photo2.jpg'),
 
-(16, NULL, '2024-11-01 09:00:00', true, 'https://example.com/photos/pets/Chasecka_user2_photo1.jpg'),
-(16, NULL, '2024-11-01 09:05:00', true, 'https://example.com/photos/pets/Chasecka_user2_photo2.jpg'),
-(16, NULL, '2024-11-01 09:10:00', true, 'https://example.com/photos/pets/Chasecka_user2_photo3.jpg'),
+(16, NULL, '2024-11-01 09:00:00', true, 'https://psinder.com/photos/pets/Chasecka_user2_photo1.jpg'),
+(16, NULL, '2024-11-01 09:05:00', true, 'https://psinder.com/photos/pets/Chasecka_user2_photo2.jpg'),
+(16, NULL, '2024-11-01 09:10:00', true, 'https://psinder.com/photos/pets/Chasecka_user2_photo3.jpg'),
 
-(17, NULL, '2024-03-22 11:00:00', true, 'https://example.com/photos/pets/Goldie_user3_photo1.jpg'),
-(17, NULL, '2024-03-22 11:05:00', true, 'https://example.com/photos/pets/Goldie_user3_photo2.jpg'),
+(17, NULL, '2024-03-22 11:00:00', true, 'https://psinder.com/photos/pets/Goldie_user3_photo1.jpg'),
+(17, NULL, '2024-03-22 11:05:00', true, 'https://psinder.com/photos/pets/Goldie_user3_photo2.jpg'),
 
-(18, NULL, '2024-03-22 12:00:00', true, 'https://example.com/photos/pets/Chewy_user3_photo1.jpg'),
-(18, NULL, '2024-03-22 12:05:00', true, 'https://example.com/photos/pets/Chewy_user3_photo2.jpg'),
-(18, NULL, '2024-03-22 12:10:00', true, 'https://example.com/photos/pets/Chewy_user3_photo3.jpg'),
+(18, NULL, '2024-03-22 12:00:00', true, 'https://psinder.com/photos/pets/Chewy_user3_photo1.jpg'),
+(18, NULL, '2024-03-22 12:05:00', true, 'https://psinder.com/photos/pets/Chewy_user3_photo2.jpg'),
+(18, NULL, '2024-03-22 12:10:00', true, 'https://psinder.com/photos/pets/Chewy_user3_photo3.jpg'),
 
-(19, NULL, '2024-03-26 09:00:00', true, 'https://example.com/photos/pets/Murzik_user4_photo1.jpg'),
-(19, NULL, '2024-03-26 09:05:00', true, 'https://example.com/photos/pets/Murzik_user4_photo2.jpg'),
-(19, NULL, '2024-03-26 09:10:00', true, 'https://example.com/photos/pets/Murzik_user4_photo3.jpg'),
+(19, NULL, '2024-03-26 09:00:00', true, 'https://psinder.com/photos/pets/Murzik_user4_photo1.jpg'),
+(19, NULL, '2024-03-26 09:05:00', true, 'https://psinder.com/photos/pets/Murzik_user4_photo2.jpg'),
+(19, NULL, '2024-03-26 09:10:00', true, 'https://psinder.com/photos/pets/Murzik_user4_photo3.jpg'),
 
-(20, NULL, '2024-03-26 09:15:00', true, 'https://example.com/photos/pets/Cleo_user4_photo1.jpg'),
-(20, NULL, '2024-03-26 09:20:00', true, 'https://example.com/photos/pets/Cleo_user4_photo2.jpg'),
+(20, NULL, '2024-03-26 09:15:00', true, 'https://psinder.com/photos/pets/Cleo_user4_photo1.jpg'),
+(20, NULL, '2024-03-26 09:20:00', true, 'https://psinder.com/photos/pets/Cleo_user4_photo2.jpg'),
 
-(21, NULL, '2024-03-26 12:30:00', true, 'https://example.com/photos/pets/Simba_user4_photo1.jpg'),
-(21, NULL, '2024-03-26 12:35:00', true, 'https://example.com/photos/pets/Simba_user4_photo2.jpg'),
-(21, NULL, '2024-03-26 12:40:00', true, 'https://example.com/photos/pets/Simba_user4_photo3.jpg'),
+(21, NULL, '2024-03-26 12:30:00', true, 'https://psinder.com/photos/pets/Simba_user4_photo1.jpg'),
+(21, NULL, '2024-03-26 12:35:00', true, 'https://psinder.com/photos/pets/Simba_user4_photo2.jpg'),
+(21, NULL, '2024-03-26 12:40:00', true, 'https://psinder.com/photos/pets/Simba_user4_photo3.jpg'),
 
-(22, NULL, '2024-09-01 06:30:00', true, 'https://example.com/photos/pets/Nibbles_user5_photo1.jpg'),
-(22, NULL, '2024-09-01 06:35:00', true, 'https://example.com/photos/pets/Nibbles_user5_photo2.jpg'),
+(22, NULL, '2024-09-01 06:30:00', true, 'https://psinder.com/photos/pets/Nibbles_user5_photo1.jpg'),
+(22, NULL, '2024-09-01 06:35:00', true, 'https://psinder.com/photos/pets/Nibbles_user5_photo2.jpg'),
 
-(23, NULL, '2024-09-01 07:30:00', true, 'https://example.com/photos/pets/Nesushka_user5_photo1.jpg'),
-(23, NULL, '2024-09-01 07:35:00', true, 'https://example.com/photos/pets/Nesushka_user5_photo2.jpg'),
+(23, NULL, '2024-09-01 07:30:00', true, 'https://psinder.com/photos/pets/Nesushka_user5_photo1.jpg'),
+(23, NULL, '2024-09-01 07:35:00', true, 'https://psinder.com/photos/pets/Nesushka_user5_photo2.jpg'),
 
-(24, NULL, '2024-05-07 09:00:00', true, 'https://example.com/photos/pets/Whiskers_user6_photo1.jpg'),
-(24, NULL, '2024-05-07 09:05:00', true, 'https://example.com/photos/pets/Whiskers_user6_photo2.jpg'),
-(24, NULL, '2024-05-07 09:10:00', true, 'https://example.com/photos/pets/Whiskers_user6_photo3.jpg'),
+(24, NULL, '2024-05-07 09:00:00', true, 'https://psinder.com/photos/pets/Whiskers_user6_photo1.jpg'),
+(24, NULL, '2024-05-07 09:05:00', true, 'https://psinder.com/photos/pets/Whiskers_user6_photo2.jpg'),
+(24, NULL, '2024-05-07 09:10:00', true, 'https://psinder.com/photos/pets/Whiskers_user6_photo3.jpg'),
 
-(25, NULL, '2024-05-07 10:00:00', true, 'https://example.com/photos/pets/Bella_Beagle_user6_photo1.jpg'),
-(25, NULL, '2024-05-07 10:05:00', true, 'https://example.com/photos/pets/Bella_Beagle_user6_photo2.jpg'),
+(25, NULL, '2024-05-07 10:00:00', true, 'https://psinder.com/photos/pets/Bella_Beagle_user6_photo1.jpg'),
+(25, NULL, '2024-05-07 10:05:00', true, 'https://psinder.com/photos/pets/Bella_Beagle_user6_photo2.jpg'),
 
-(26, NULL, '2024-10-12 11:00:00', true, 'https://example.com/photos/pets/Buddy_user7_photo1.jpg'),
-(26, NULL, '2024-10-12 11:05:00', true, 'https://example.com/photos/pets/Buddy_user7_photo2.jpg'),
-(26, NULL, '2024-10-12 11:10:00', true, 'https://example.com/photos/pets/Buddy_user7_photo3.jpg'),
+(26, NULL, '2024-10-12 11:00:00', true, 'https://psinder.com/photos/pets/Buddy_user7_photo1.jpg'),
+(26, NULL, '2024-10-12 11:05:00', true, 'https://psinder.com/photos/pets/Buddy_user7_photo2.jpg'),
+(26, NULL, '2024-10-12 11:10:00', true, 'https://psinder.com/photos/pets/Buddy_user7_photo3.jpg'),
 
-(27, NULL, '2024-10-12 12:00:00', true, 'https://example.com/photos/pets/Max_GS_user7_photo1.jpg'),
-(27, NULL, '2024-10-12 12:05:00', true, 'https://example.com/photos/pets/Max_GS_user7_photo2.jpg'),
+(27, NULL, '2024-10-12 12:00:00', true, 'https://psinder.com/photos/pets/Max_GS_user7_photo1.jpg'),
+(27, NULL, '2024-10-12 12:05:00', true, 'https://psinder.com/photos/pets/Max_GS_user7_photo2.jpg'),
 
-(28, NULL, '2024-11-02 08:30:00', true, 'https://example.com/photos/pets/Sky_user8_photo1.jpg'),
-(28, NULL, '2024-11-02 08:35:00', true, 'https://example.com/photos/pets/Sky_user8_photo2.jpg'),
+(28, NULL, '2024-11-02 08:30:00', true, 'https://psinder.com/photos/pets/Sky_user8_photo1.jpg'),
+(28, NULL, '2024-11-02 08:35:00', true, 'https://psinder.com/photos/pets/Sky_user8_photo2.jpg'),
 
-(29, NULL, '2024-11-02 09:30:00', true, 'https://example.com/photos/pets/Daisy_Hamster_user8_photo1.jpg'),
-(29, NULL, '2024-11-02 09:35:00', true, 'https://example.com/photos/pets/Daisy_Hamster_user8_photo2.jpg'),
+(29, NULL, '2024-11-02 09:30:00', true, 'https://psinder.com/photos/pets/Daisy_Hamster_user8_photo1.jpg'),
+(29, NULL, '2024-11-02 09:35:00', true, 'https://psinder.com/photos/pets/Daisy_Hamster_user8_photo2.jpg'),
 
-(30, NULL, '2024-11-10 09:30:00', true, 'https://example.com/photos/pets/Max_Lab_user9_photo1.jpg'),
-(30, NULL, '2024-11-10 09:35:00', true, 'https://example.com/photos/pets/Max_Lab_user9_photo2.jpg'),
-(30, NULL, '2024-11-10 09:40:00', true, 'https://example.com/photos/pets/Max_Lab_user9_photo3.jpg'),
+(30, NULL, '2024-11-10 09:30:00', true, 'https://psinder.com/photos/pets/Max_Lab_user9_photo1.jpg'),
+(30, NULL, '2024-11-10 09:35:00', true, 'https://psinder.com/photos/pets/Max_Lab_user9_photo2.jpg'),
+(30, NULL, '2024-11-10 09:40:00', true, 'https://psinder.com/photos/pets/Max_Lab_user9_photo3.jpg'),
 
-(31, NULL, '2024-11-10 10:30:00', true, 'https://example.com/photos/pets/Bella_Persian_user9_photo1.jpg'),
-(31, NULL, '2024-11-10 10:35:00', true, 'https://example.com/photos/pets/Bella_Persian_user9_photo2.jpg'),
+(31, NULL, '2024-11-10 10:30:00', true, 'https://psinder.com/photos/pets/Bella_Persian_user9_photo1.jpg'),
+(31, NULL, '2024-11-10 10:35:00', true, 'https://psinder.com/photos/pets/Bella_Persian_user9_photo2.jpg'),
 
-(32, NULL, '2024-11-10 11:30:00', true, 'https://example.com/photos/pets/Goldie_user9_photo1.jpg'),
-(32, NULL, '2024-11-10 11:35:00', true, 'https://example.com/photos/pets/Goldie_user9_photo2.jpg');
+(32, NULL, '2024-11-10 11:30:00', true, 'https://psinder.com/photos/pets/Goldie_user9_photo1.jpg'),
+(32, NULL, '2024-11-10 11:35:00', true, 'https://psinder.com/photos/pets/Goldie_user9_photo2.jpg');
 
-INSERT INTO pet_preference (profile_id, min_age, max_age, min_price, max_price, min_purebred_precentage,
-                            max_purebred_precentage, has_certification_uploaded)
+INSERT INTO pet_preference (profile_id, min_age, max_age, min_price, max_price, min_purebred_percentage,
+                            max_purebred_percentage, has_certification_uploaded)
 VALUES
 -- Snusicha
 (1, 2, 6, 2000, 3000, 100, 100, NULL),
@@ -1207,20 +1338,28 @@ VALUES (1, 16, '2024-01-08 09:30:12'),
 -- 4. Akulina (user_id = 9) liked Goldie (user_id = 3), but Goldie (user_id = 3) did not like Akulina (user_id = 9)
        (32, 17, '2024-11-10 14:10:00'),
 -- 5. Baron (user_id = 6) liked Murzik (user_id = 4), but Murzik did not like Baron
-       (24, 19, '2024-05-07 11:00:00');
+       (24, 19, '2024-05-07 11:00:00'),
+-- 6. Princess (user_id = 5) liked Simba (user_id = 4), but Simba did not like Princess
+       (33, 21, '2024-05-07 11:00:00'),
+-- 7. Duchess (user_id = 5) liked Simba (user_id = 4), but Simba did not like Duchess
+       (34, 21, '2024-05-07 11:00:00'),
+-- 8. Marta (user_id = 56) liked Simba (user_id = 4), but Simba did not like Marta
+       (35, 21, '2024-05-07 11:00:00');
 
 -- Snusicha и Chasecka
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
 VALUES (1, 1, 'Hi, Chasecka! Nice to meet you. 🐾', '2024-01-08 10:05:00'),
        (1, 16, 'Hi, Snusicha! Nice to meet you. How are you doing?', '2024-01-08 10:07:00'),
-       (1, 1, 'Everything is perfect! Enjoying a sunny day in Prague. Do you like to walk in the park?', '2024-01-08 10:10:00'),
+       (1, 1, 'Everything is perfect! Enjoying a sunny day in Prague. Do you like to walk in the park?',
+        '2024-01-08 10:10:00'),
        (1, 16, 'Of course! The park is my favourite place. Maybe we could meet there sometime?', '2024-01-08 10:12:00');
 
 -- Pusicka и PiDidi
 INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
 VALUES (2, 6, 'Hi PiDidi! Your photos are just wonderful! 🐶', '2024-01-01 06:15:00'),
        (2, 26, 'Thanks, Pusicka! You look great too. Are you from London?', '2024-01-01 06:17:00'),
-       (2, 6, 'No, Im from Prague, but sometimes Im in London. It would be great to play together!', '2024-01-01 06:20:00'),
+       (2, 6, 'No, Im from Prague, but sometimes Im in London. It would be great to play together!',
+        '2024-01-01 06:20:00'),
        (2, 26, 'Sounds great! Let me know when you re in town.', '2024-01-01 06:22:00');
 
 -- Skibidi и PiDidi
@@ -1256,7 +1395,7 @@ INSERT INTO message (conversation_id, profile_id, content, sent_datetime)
 VALUES (7, 31, 'Hi, Simba! You have such a majestic look!', '2024-11-10 12:15:00'),
        (7, 21, 'Hi Zoja! Thank you, you are very elegant too.', '2024-11-10 12:17:00'),
        (7, 31, 'I would like to meet someday.', '2024-11-10 12:20:00'),
-       (7, 21, 'Id love to. Let''s find a good time.', '2024-11-10 12:22:00');
+       (7, 21, 'Id love to. Lets find a good time.', '2024-11-10 12:22:00');
 
 INSERT INTO user_grade (user_giver_id, user_receiver_id, grade, graded_datetime, content)
 VALUES
@@ -1309,8 +1448,8 @@ VALUES
 (5, 8, '2024-10-07 10:00:00', 'Unprofessional behavior.'),
 -- User 6 (Katya) blocks User 7 (Joseph Smith)
 (6, 7, '2024-04-12 11:00:00', 'Inappropriate messages.'),
--- User 3 (Max) blocks User 1 (Masha)
-(3, 1, '2024-06-18 17:00:00', 'Disrespectful communication.'),
+-- User 3 (Max) blocks User 2 (Margo)
+(3, 2, '2024-06-18 17:00:00', 'Disrespectful communication.'),
 -- User 9 (Rahul) blocks User 5 (Pat Kim)
 (9, 5, '2024-11-12 12:00:00', 'Spamming and unsolicited messages.'),
 -- User 2 (Margo) blocks User 4 (Chris Wilson)
@@ -1323,3 +1462,5 @@ VALUES
 (8, 5, '2024-10-08 11:00:00', 'Disrespectful behavior.'),
 -- User 5 (Pat Kim) blocks User 9 (Rahul)
 (5, 9, '2024-10-09 12:00:00', 'Unwanted contact.');
+
+
