@@ -177,6 +177,7 @@ CREATE TABLE pet_like
 );
 ALTER TABLE pet_like
     ADD CONSTRAINT pk_pet_like PRIMARY KEY (profile_initiator_id, profile_target_id);
+-- For fast mutual like lookup after a new like is created (used by trigger)
 CREATE INDEX idx_pet_like_initiator_target ON pet_like (profile_initiator_id, profile_target_id);
 CREATE INDEX idx_pet_like_target_initiator ON pet_like (profile_target_id, profile_initiator_id);
 
@@ -197,8 +198,8 @@ CREATE TABLE pet_preference
     max_age                    INTEGER,
     min_price                  INTEGER,
     max_price                  INTEGER,
-    min_purebred_precentage    INTEGER,
-    max_purebred_precentage    INTEGER,
+    min_purebred_percentage    INTEGER,
+    max_purebred_percentage    INTEGER,
     has_certification_uploaded BOOLEAN
 );
 ALTER TABLE pet_preference
@@ -219,7 +220,7 @@ CREATE TABLE pet_profile
     price               INTEGER,
     certification_url   TEXT,
     profile_description VARCHAR(500),
-    purebred_percantage INTEGER,
+    purebred_percentage INTEGER,
     created_datetime    TIMESTAMP    NOT NULL
 );
 ALTER TABLE pet_profile
