@@ -1462,5 +1462,3 @@ VALUES
 (8, 5, '2024-10-08 11:00:00', 'Disrespectful behavior.'),
 -- User 5 (Pat Kim) blocks User 9 (Rahul)
 (5, 9, '2024-10-09 12:00:00', 'Unwanted contact.');
-
-
