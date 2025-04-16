@@ -1,5 +1,20 @@
+/*
+ * Psinder Analytics ETL Query
+ * 
+ * This query extracts, transforms, and loads data from the Psinder database
+ * into a format suitable for analytics. It provides comprehensive metrics
+ * about pet profiles, their interactions, and match patterns.
+ *
+ * Use cases:
+ * - Analyzing user behavior and engagement
+ * - Understanding matching patterns between different types of profiles
+ * - Identifying popular breeds and locations
+ * - Measuring conversion rates from likes to matches
+ */
+
 WITH
 -- Count of active photos for each profile
+-- This helps analyze the correlation between photo count and match success
 photo_counts AS (
     SELECT profile_id, COUNT(*) AS active_photos
     FROM photo_data
@@ -8,6 +23,7 @@ photo_counts AS (
 ),
 
 -- Count of likes sent by each profile
+-- Helps measure user engagement and outbound activity
 sent_likes AS (
     SELECT profile_initiator_id, COUNT(*) AS sent_like_count
     FROM pet_like
@@ -15,6 +31,7 @@ sent_likes AS (
 ),
 
 -- Count of likes received by each profile
+-- Indicates profile popularity and attractiveness
 received_likes AS (
     SELECT profile_target_id, COUNT(*) AS received_like_count
     FROM pet_like
@@ -22,6 +39,7 @@ received_likes AS (
 ),
 
 -- Count of mutual matches for each profile
+-- Key metric for measuring success in the platform
 matches AS (
     SELECT profile_id_1, COUNT(*) AS match_count
     FROM pet_match
@@ -29,6 +47,7 @@ matches AS (
 ),
 
 -- Liked profile details (avoiding redundant joins)
+-- Contains data about each like interaction and whether it resulted in a match
 liked_profiles AS (
     SELECT
         pl.profile_initiator_id,
@@ -43,6 +62,7 @@ liked_profiles AS (
         OR (pm.profile_id_2 = pl.profile_initiator_id AND pm.profile_id_1 = pl.profile_target_id)
 )
 
+-- Main query combining all the data for comprehensive analytics
 SELECT
     -- Animal profile details
     p.profile_id AS animal_profile_id,
@@ -65,17 +85,20 @@ SELECT
     COALESCE(rl.received_like_count, 0) AS received_likes,
 
     -- Behavioral metrics
+    -- Match rate: percentage of received likes compared to sent likes
     CASE
         WHEN sl.sent_like_count > 0 THEN ROUND(rl.received_like_count::NUMERIC / sl.sent_like_count, 2)
         ELSE NULL
     END AS match_rate,
 
+    -- Mutual like rate: percentage of matches compared to sent likes
     CASE
         WHEN sl.sent_like_count > 0 THEN ROUND(m.match_count::NUMERIC / sl.sent_like_count, 2)
         ELSE NULL
     END AS mutual_like_rate,
 
     -- Liked profile details
+    -- Information about the profiles this user has liked
     lp.profile_target_id AS liked_profile_id,
     lg.gender_name AS liked_pet_gender,
     la.type_name AS liked_animal_type,
