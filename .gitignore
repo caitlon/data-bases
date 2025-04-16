@@ -1,3 +1,14 @@
 *.DS_Store
 *.idea
 midtest
+
+# Credentials and sensitive data
+*credentials*.txt
+*.env
+
+# Database files
+*.sqlite
+*.db
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
