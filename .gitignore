@@ -1,6 +1,6 @@
 *.DS_Store
 *.idea
-midtest
+Exams
 
 # Credentials and sensitive data
 *credentials*.txt
